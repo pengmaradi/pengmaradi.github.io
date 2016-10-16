@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>name in config yaml Pengmaradi.GitHub.io</title>
+    <title>{{site.name}} Pengmaradi.GitHub.io</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     
     <!--[if lt IE 8]>
@@ -14,28 +14,14 @@
   </head>
   <body>
       <div id="header">
-        <nav>
- <ul>
-	<li class="fork">
-	<a href="https://github.com/pengmaradi">pengmaradi</a>
-  </li>
-  <li class="fork">
-	<a href="/">Home</a>
-  </li>
-	<li class="fork">
-	<a href="news.html">news</a>
-  </li>
- </ul>
-</nav>
+        {% include nav.html %}
       </div><!-- end header -->
 
     <div class="wrapper">
 
-      index.html
+      {{content}}
 	
-   	  <div class="footer">
-	this the footer
-</div>
+   	  {% include footer.html %}
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
