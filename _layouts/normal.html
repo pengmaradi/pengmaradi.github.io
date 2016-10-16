@@ -10,13 +10,13 @@
 		<link rel="stylesheet" href="stylesheets/ie.css">
 		<![endif]-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<title>xp: index.html</title>
+		<title>xp: {{ page.name }}</title>
   </head>
   <body>
-  	index.html
-  	
-  	
-  	<p>Hallo Welt - test</p>
+  	{{page.name}}
+  	{{site.name}}
+  	{{site.title}}
+  	{{ content }}
   	
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
