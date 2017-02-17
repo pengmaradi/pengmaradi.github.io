@@ -7,9 +7,9 @@
 
 
 'INSTALL' => array(
-	'wizardDone' => array(
-			'tx_coreupdates_installnewsysexts' => '1',
-	),
+    'wizardDone' => array(
+        'tx_coreupdates_installnewsysexts' => '1',
+    ),
 ),
 
 
@@ -59,4 +59,7 @@ public function saveFormAction(Vendor\MyExtension\Domain\Model\User $formdata) {
         //see private function anotiations!
         $this->buildRelations($myModel->getUid(), $movedNewFile, 'image', 'tx_myextension_domain_model_mymodel', $storagePid);
     }
-}      
+} 
+
+```
+# end test
