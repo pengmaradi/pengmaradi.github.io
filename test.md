@@ -16,6 +16,7 @@
 ```
 
 
+```php
  /**
  * Adds an entry
  * @var Vendor\MyExtension\Domain\Model\User $formdata
