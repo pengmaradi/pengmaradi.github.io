@@ -1,0 +1,15 @@
+body {
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    top: 10px;
+    right: 10px;
+    overflow: hidden;
+    display: block;
+    color: #fff;
+}
+
+html {
+    font-family: serif, verdana,sans-serif;
+    background: #000;
+}
