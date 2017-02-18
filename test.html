@@ -1,21 +1,20 @@
---- 
-layout: default 
----  
+---
+layout: default
+---
 
 <div id="fluidContainer">
-    <nav id="mynav">
-        <ul>
-            <li><a class="linkItem" href="/page1">link to page 1</a></li>
-            <li><a class="linkItem" href="/page1">link to page 1</a></li>
-            <li><a class="linkItem" href="/page1">link to page 1</a></li>
-            <li><a class="linkItem" href="/page1">link to page 1</a></li>
-            <li><a class="linkItem" href="/page1">link to page 1</a></li>
-        </ul>
-    </nav>
+
     <div id="container">
         <div class="row">
             <div class="col-md-12">
-
+                <ul>
+                    {% for post in site.posts %}
+                    <li>
+                        <a href="{{post.url}}">{{post.title}}</a>
+                        {{post.content}}
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
