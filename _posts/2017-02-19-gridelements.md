@@ -4,7 +4,7 @@ title:  "typo3 gridelements"
 date:   2017-02-18 09:58:01 -0100
 categories: jekyll update
 class: panel-info
-description: gridelements works with page TS, typoscript, dataProcessing and fluid templates
+description: gridelements works with fluid templates
 ---
 
 # gridelements works with page TS, typoscript, dataProcessing and fluid templates
