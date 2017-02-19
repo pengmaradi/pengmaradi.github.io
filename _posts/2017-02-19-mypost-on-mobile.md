@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "mypostOnMobile"
-color: panel-green
-description: post from mobile
-date: 2017-02-19 15:09
+title:  "my post on mobile"
+date:   2017-02-19 11:20:01 -0100
 categories: jekyll update
+class: panel-green
+description: post from mobile
 ---
 
 # the headet
@@ -15,6 +15,6 @@ $a = '';
 
 ```
 
-[www.google.com](google) 
+[https://www.google.com](google)
 
 😍😉(^_^)ノ(❁´▽`❁)
