@@ -8,7 +8,7 @@ layout: default
             <div class="col-md-12">
                 {% for post in site.posts %}
                 <div class="col-lg-4">
-                    <div class="panel {% if {{post.class}} %} {{post.class}} {% endif %}">
+                    <div class="panel {{post.class}}">
                         <div class="panel-heading">
                             {{post.title}}
                         </div>
