@@ -3,17 +3,25 @@ layout: default
 ---
 
 <div id="fluidContainer">
-
     <div id="container">
         <div class="row">
             <div class="col-md-12">
-                <ul>
-                    {% for post in site.posts %}
-                    <li>
-                        <a href="{{post.url}}">{{post.title}}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {% for post in site.posts %}
+                <div class="col-lg-4">
+                    <div class="panel {% if {{post.class}} %} {{post.class}} {% endif %}">
+                        <div class="panel-heading">
+                            {{post.title}}
+                        </div>
+                        <div class="panel-body">
+                            <p>{{post.date}}</p>
+                            <a href="{{post.url}}">More</a>
+                        </div>
+                        <div class="panel-footer">
+                            {{post.categories}}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
