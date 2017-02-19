@@ -6,6 +6,13 @@ layout: default
     <div id="container">
         <div class="row">
             <div class="col-md-12">
+                <h1 class="page-header">
+                    Test Bolg
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 {% for post in site.posts %}
                 <div class="col-lg-4">
                     <div class="panel {{post.class}}">
@@ -14,6 +21,7 @@ layout: default
                         </div>
                         <div class="panel-body">
                             <p>{{post.date}}</p>
+                            <p>{{post.description}}</p>
                             <a href="{{post.url}}">More</a>
                         </div>
                         <div class="panel-footer">
