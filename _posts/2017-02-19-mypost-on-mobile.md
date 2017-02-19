@@ -1,6 +1,6 @@
 ---
 layout: default
-title: mypostOnMobile
+title: "mypostOnMobile"
 color: panel-green
 description: post from mobile
 date: 2017-02-19 15:09
