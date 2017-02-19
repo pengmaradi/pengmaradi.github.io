@@ -9,7 +9,7 @@ description: include the typoscript in file
 
 #include config of backendlayout
 
-- BackendLayouts
+-- BackendLayouts
 
     -- default.txt
 
@@ -22,15 +22,16 @@ description: include the typoscript in file
     -- default4.txt
 
     -- default5.txt
-    
+
     -- ...
 
+```typoscript
 ### include all folder txts
 <INCLUDE_TYPOSCRIPT: source="DIR:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts" extensions="txt">
-
 
 ### include default.txt
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/default.txt">
 
 ### include default1.txt
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/default1.txt">
+```
