@@ -35,3 +35,19 @@ description: include the typoscript in file
 ### include default1.txt
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/default1.txt">
 ```
+
+```php
+var_dump($_SERVER); 
+
+
+
+
+```
+
+
+
+
+
+
+
+
