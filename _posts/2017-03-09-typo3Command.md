@@ -11,23 +11,19 @@ description: Command Lind for TYPO3
 
 ## AccordionCommandController.php
 
-´´´php
 
+´´´php
+<?php
 namespace Cabag\BiozentrumAccordion\Command;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/**
+ * class AccordionCommandController
+ *
+ */
 class AccordionCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\CommandController
 {
 	/**
-	 * tx_templavoila_ds = 10	
-	 * tx_templavoila_to = 11
-	 * 
-	 * to 
-	 * CType = biozentrumaccordion_accordion
-	 * header = header
-	 * subheader = field_title.vDEF
-	 * bodytext = field_inhalt.vDEF
-	 * header_link = header_link
 	 * php typo3/cli_dispatch.phpsh extbase biozentrum_accordion:accordion:accordion --dry-run=1
 	 * Migrate default content Templavoilà objects to default textpic elements
 	 *
@@ -78,12 +74,3 @@ class AccordionCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Comma
 	}
 }
 
-´´´
-
-## ext_localconf.php
-
-´´´php
-
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'Cabag\\BiozentrumAccordion\\Command\\AccordionCommandController';
-
-´´´
