@@ -74,3 +74,15 @@ class AccordionCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Comma
 }
 
 ```
+
+## ext_localconf.php 
+
+```php
+<?php
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'Cabag\\BiozentrumAccordion\\Command\\AccordionCommandController';
+
+```
+
+
+
+
