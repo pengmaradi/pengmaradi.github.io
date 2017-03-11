@@ -73,4 +73,4 @@ class AccordionCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Comma
 		}
 	}
 }
-
+´´´
