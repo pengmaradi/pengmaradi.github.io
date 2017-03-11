@@ -13,6 +13,7 @@ description: Command Lind for TYPO3
 
 
 ´´´php
+
 <?php
 namespace Cabag\BiozentrumAccordion\Command;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
