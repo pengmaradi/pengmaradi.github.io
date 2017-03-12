@@ -9,7 +9,7 @@ description: Command Lind for TYPO3
 
 # TYPO3 Command Line
 
-## AccordionCommandController.php
+## Accordion Command Controller.php
 
 ```php
 <?php
