@@ -2,7 +2,7 @@
 layout: default
 title:  "typoscript include ts"
 date:   2017-02-19 11:20:01 -0100
-categories: jekyll update
+categories: typo3
 class: panel-red
 description: include the typoscript in file
 ---
