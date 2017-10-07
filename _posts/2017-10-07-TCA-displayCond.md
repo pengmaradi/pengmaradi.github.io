@@ -1,7 +1,7 @@
 ---
 layout: default
 title:  "TYPO3 tca displayCond"
-date:   2017-02-19 11:20:01 -0100
+date:   2017-10-07 09:23:00 -0100
 categories: typo3
 class: panel-green
 description: Versucht die Zugriffsrechte
