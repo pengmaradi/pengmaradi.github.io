@@ -52,7 +52,7 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 
 * configurePlugin
 
-### Configuration/TCA/Overrides/tt_content.php
+### Configuration /TCA /Overrides /tt_content.php
 
 * addPiFlexFormValue
 * registerPlugin
