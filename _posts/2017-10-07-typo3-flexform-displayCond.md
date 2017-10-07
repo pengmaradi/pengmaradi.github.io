@@ -4,7 +4,7 @@ title:  "TYPO3 flexform displayCond"
 date:   2017-10-07 09:23:00 -0100
 categories: typo3
 class: panel-green
-description: TYPO3 flexform displayCond and onChange reload
+description: flexform displayCond
 ---
 
 ## Beschreibung
