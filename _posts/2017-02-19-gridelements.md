@@ -2,7 +2,7 @@
 layout: default
 title:  "typo3 gridelements"
 date:   2017-02-18 09:58:01 -0100
-categories: jekyll update
+categories: typo3
 class: panel-info
 description: gridelements works with fluid templates
 ---
