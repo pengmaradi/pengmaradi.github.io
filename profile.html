@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<div id="fluidContainer">
+    <div id="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-header">
+                    My Profile
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- ###test-begin### -->
+                {% for test in site.tests %}
+                <div class="col-lg-4">
+                    <div class="panel {{post.class}}">
+                        <div class="panel-heading">
+                            {{test.title}}
+                        </div>
+                        <div class="panel-body">
+                            <p>{{test.date}}</p>
+                            <p>{{test.description}}</p>
+                            <a href="{{test.url}}">More</a>
+                        </div>
+                        <div class="panel-footer">
+                            {{test.categories}}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- ###test-end### -->
+            </div>
+        </div>
+    </div>
+</div>
