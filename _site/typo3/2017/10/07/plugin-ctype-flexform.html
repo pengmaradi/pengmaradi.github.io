@@ -234,102 +234,96 @@
 </nav>
 
 	<div id="page-wrapper">
-		<div class="row">
-	<div class="col-lg-12">
-	  <h1 class="page-header">MY Dashboard</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<div class="row">
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-primary">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-comments fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">26</div>
-			  <div>New Comments!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-green">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-tasks fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">12</div>
-			  <div>New Tasks!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-yellow">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-shopping-cart fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">124</div>
-			  <div>New Orders!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-red">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-support fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">13</div>
-			  <div>Support Tickets!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-</div>
+		<h2>Just set plugin as CType with flexform</h2>
+
+<h3>ext_tables.php</h3>
+
+<ul>
+<li>addStaticFile</li>
+<li>addPageTSConfig</li>
+</ul>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">\TYPO3\CMS\Core\Utility\ExtensionManagementUtility</span><span class="o">::</span><span class="na">addStaticFile</span><span class="p">(</span><span class="s1">'ext_name'</span><span class="p">,</span> <span class="s1">'Configuration/TypoScript'</span><span class="p">,</span> <span class="s1">'your ext plugin'</span><span class="p">);</span>
+
+<span class="nx">\TYPO3\CMS\Core\Utility\ExtensionManagementUtility</span><span class="o">::</span><span class="na">addPageTSConfig</span><span class="p">(</span><span class="s1">'&lt;INCLUDE_TYPOSCRIPT: source="FILE:EXT:ext_name/Configuration/PageTS/pageSetup.txt"&gt;'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre><code class="language-TYPOSCRIPT" data-lang="TYPOSCRIPT">mod.wizards.newContentElement.wizardItems.common.elements.your_plugin {
+        iconIdentifier = content-special-html
+        title = your CType title
+        description = about your CType
+        tt_content_defValues {
+            CType = your_plugin
+        }
+}
+mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
+</code></pre></div>
+<h3>ext_localconf.php</h3>
+
+<ul>
+<li>configurePlugin</li>
+</ul>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="nx">\TYPO3\CMS\Extbase\Utility\ExtensionUtility</span><span class="o">::</span><span class="na">configurePlugin</span><span class="p">(</span>
+    <span class="s1">'Vendor.'</span> <span class="o">.</span> <span class="nv">$_EXTKEY</span><span class="p">,</span>
+    <span class="s1">'Pi1'</span><span class="p">,</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Class'</span> <span class="o">=&gt;</span> <span class="s1">'show'</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Class'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+
+    <span class="p">),</span>
+    <span class="nx">\TYPO3\CMS\Extbase\Utility\ExtensionUtility</span><span class="o">::</span><span class="na">PLUGIN_TYPE_CONTENT_ELEMENT</span>
+<span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>configurePlugin</li>
+</ul>
+
+<h3>Configuration /TCA /Overrides /tt_content.php</h3>
+
+<ul>
+<li>addPiFlexFormValue</li>
+<li>registerPlugin</li>
+<li>$GLOBALS[&#39;TCA&#39;][&#39;tt<em>content&#39;][&#39;types&#39;][&#39;your_plugin&#39;] = [&#39;showitem&#39;=&gt;&#39;pi</em>flexform&#39;];</li>
+</ul>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nb">defined</span><span class="p">(</span><span class="s1">'TYPO3_MODE'</span><span class="p">)</span> <span class="o">||</span> <span class="k">die</span><span class="p">(</span><span class="s1">'Access denied.'</span><span class="p">);</span>
+
+<span class="nb">call_user_func</span><span class="p">(</span>
+    <span class="k">function</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// add Flexform to  plugin
+//      $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['your_plugin'] = 'pi_flexform';
+//      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+//          'your_plugin',
+//          'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml'
+//      );
+</span>
+        <span class="c1">// Add a flexform to the htmlio_pi1 CType
+</span>        <span class="nx">\TYPO3\CMS\Core\Utility\ExtensionManagementUtility</span><span class="o">::</span><span class="na">addPiFlexFormValue</span><span class="p">(</span>
+            <span class="s1">''</span><span class="p">,</span>
+            <span class="s1">'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml'</span><span class="p">,</span>
+            <span class="s1">'your_plugin'</span>
+        <span class="p">);</span>
+
+        <span class="nx">\TYPO3\CMS\Extbase\Utility\ExtensionUtility</span><span class="o">::</span><span class="na">registerPlugin</span><span class="p">(</span>
+            <span class="s1">'Xp.htmlio'</span><span class="p">,</span>
+            <span class="s1">'Pi1'</span><span class="p">,</span>
+            <span class="s1">'your plugin'</span>
+        <span class="p">);</span>
+
+
+        <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'TCA'</span><span class="p">][</span><span class="s1">'tt_content'</span><span class="p">][</span><span class="s1">'types'</span><span class="p">][</span><span class="s1">'your_plugin'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">'showitem'</span><span class="o">=&gt;</span> <span class="s1">'
+--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general, pi_flexform,
+--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.default.hidden,
+--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.extended,
+--div--;LLL:EXT:lang/locallang_tca.xlf:sys_category.tabs.category,categories,
+        '</span><span class="p">];</span>
+
+    <span class="p">}</span>
+<span class="p">);</span>
+
+</code></pre></div>
 	 </div>
     </div>
     <footer class="footer bs-docs-footer">

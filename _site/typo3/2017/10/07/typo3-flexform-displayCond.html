@@ -234,102 +234,95 @@
 </nav>
 
 	<div id="page-wrapper">
-		<div class="row">
-	<div class="col-lg-12">
-	  <h1 class="page-header">MY Dashboard</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<div class="row">
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-primary">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-comments fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">26</div>
-			  <div>New Comments!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-green">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-tasks fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">12</div>
-			  <div>New Tasks!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-yellow">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-shopping-cart fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">124</div>
-			  <div>New Orders!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-red">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-support fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">13</div>
-			  <div>Support Tickets!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-</div>
+		<h2>Beschreibung</h2>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;T3DataStructure&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">type=</span><span class="s">"array"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;langChildren</span> <span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/langChildren&gt;</span>
+        <span class="nt">&lt;langDisable</span> <span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/langDisable&gt;</span>
+    <span class="nt">&lt;/meta&gt;</span>
+    <span class="nt">&lt;sheets&gt;</span>
+        <span class="nt">&lt;sDEF&gt;</span>
+            <span class="nt">&lt;ROOT&gt;</span>
+                <span class="nt">&lt;TCEforms&gt;</span>
+                <span class="nt">&lt;sheetTitle&gt;</span>Settings<span class="nt">&lt;/sheetTitle&gt;</span>
+                <span class="nt">&lt;/TCEforms&gt;</span>
+                <span class="nt">&lt;type&gt;</span>array<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;el&gt;</span>
+                    <span class="nt">&lt;settings.procent&gt;</span>
+                        <span class="nt">&lt;TCEforms&gt;</span>
+                            <span class="nt">&lt;label&gt;</span>Width of the iframe in 100%<span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;onChange&gt;</span>reload<span class="nt">&lt;/onChange&gt;</span> 
+                            <span class="nt">&lt;config&gt;</span>
+                                <span class="nt">&lt;type&gt;</span>check<span class="nt">&lt;/type&gt;</span>
+                                <span class="nt">&lt;default&gt;</span>1<span class="nt">&lt;/default&gt;</span>
+                            <span class="nt">&lt;/config&gt;</span>
+                        <span class="nt">&lt;/TCEforms&gt;</span>
+                    <span class="nt">&lt;/settings.procent&gt;</span>
+                    <span class="nt">&lt;settings.width&gt;</span>
+                        <span class="nt">&lt;TCEforms&gt;</span>
+                            <span class="nt">&lt;displayCond&gt;</span>FIELD:settings.procent:=:0<span class="nt">&lt;/displayCond&gt;</span>
+                            <span class="nt">&lt;label&gt;</span>Width of the iframe (in px)<span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;config&gt;</span>
+                                <span class="nt">&lt;type&gt;</span>input<span class="nt">&lt;/type&gt;</span>
+                                <span class="nt">&lt;eval&gt;</span>trim<span class="nt">&lt;/eval&gt;</span>
+                                <span class="nt">&lt;size&gt;</span>4<span class="nt">&lt;/size&gt;</span>
+                                <span class="nt">&lt;max&gt;</span>4<span class="nt">&lt;/max&gt;</span>
+                                <span class="nt">&lt;eval&gt;</span>int<span class="nt">&lt;/eval&gt;</span>
+                            <span class="nt">&lt;/config&gt;</span>
+                        <span class="nt">&lt;/TCEforms&gt;</span>
+                    <span class="nt">&lt;/settings.width&gt;</span>
+                    <span class="nt">&lt;settings.height&gt;</span>
+                        <span class="nt">&lt;TCEforms&gt;</span>
+                            <span class="nt">&lt;label&gt;</span>Height of the iframe (in px)<span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;config&gt;</span>
+                                <span class="nt">&lt;type&gt;</span>input<span class="nt">&lt;/type&gt;</span>
+                                <span class="nt">&lt;eval&gt;</span>trim<span class="nt">&lt;/eval&gt;</span>
+                                <span class="nt">&lt;size&gt;</span>4<span class="nt">&lt;/size&gt;</span>
+                                <span class="nt">&lt;max&gt;</span>4<span class="nt">&lt;/max&gt;</span>
+                                <span class="nt">&lt;eval&gt;</span>int<span class="nt">&lt;/eval&gt;</span>
+                            <span class="nt">&lt;/config&gt;</span>
+                        <span class="nt">&lt;/TCEforms&gt;</span>
+                    <span class="nt">&lt;/settings.height&gt;</span>
+                    <span class="nt">&lt;settings.issuu&gt;</span>
+                        <span class="nt">&lt;TCEforms&gt;</span>
+                            <span class="nt">&lt;label&gt;</span><span class="cp">&lt;![CDATA[Link for the iframe (example: http://www.google.com/)]]&gt;</span><span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;config&gt;</span>
+                                <span class="nt">&lt;type&gt;</span>input<span class="nt">&lt;/type&gt;</span>
+                                <span class="nt">&lt;eval&gt;</span>trim<span class="nt">&lt;/eval&gt;</span>
+                                <span class="nt">&lt;size&gt;</span>50<span class="nt">&lt;/size&gt;</span>
+                                <span class="nt">&lt;eval&gt;</span>required<span class="nt">&lt;/eval&gt;</span>
+                            <span class="nt">&lt;/config&gt;</span>
+                        <span class="nt">&lt;/TCEforms&gt;</span>
+                    <span class="nt">&lt;/settings.issuu&gt;</span>
+                    <span class="nt">&lt;settings.text&gt;</span>
+                        <span class="nt">&lt;TCEforms&gt;</span>
+                            <span class="nt">&lt;label&gt;</span>Description of iframe<span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;config&gt;</span>
+                                <span class="nt">&lt;type&gt;</span>text<span class="nt">&lt;/type&gt;</span>
+                                <span class="nt">&lt;cols&gt;</span>48<span class="nt">&lt;/cols&gt;</span>
+                                <span class="nt">&lt;rows&gt;</span>5<span class="nt">&lt;/rows&gt;</span>
+                                <span class="nt">&lt;wizards&gt;</span>
+                                    <span class="nt">&lt;_PADDING&gt;</span>4<span class="nt">&lt;/_PADDING&gt;</span>
+                                    <span class="nt">&lt;_VALIGN&gt;</span>middle<span class="nt">&lt;/_VALIGN&gt;</span>
+                                    <span class="nt">&lt;RTE&gt;</span>
+                                        <span class="nt">&lt;notNewRecords&gt;</span>1<span class="nt">&lt;/notNewRecords&gt;</span>
+                                        <span class="nt">&lt;RTEonly&gt;</span>1<span class="nt">&lt;/RTEonly&gt;</span>
+                                        <span class="nt">&lt;type&gt;</span>script<span class="nt">&lt;/type&gt;</span> <span class="nt">&lt;title&gt;</span>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE<span class="nt">&lt;/title&gt;</span>
+                                        <span class="nt">&lt;icon&gt;</span>actions-open<span class="nt">&lt;/icon&gt;</span>
+                                    <span class="nt">&lt;/RTE&gt;</span>
+                                <span class="nt">&lt;/wizards&gt;</span>
+                            <span class="nt">&lt;/config&gt;</span>
+                            <span class="nt">&lt;defaultExtras&gt;</span>richtext[bold|italic|underline|lefttoright|righttoleft|left|center|right|orderedlist|unorderedlist| insertcharacter|link|image|findreplace|removeformat|copy|cut|paste|undo|redo|toggleborders|chMode]:rte_transform[mode=ts]<span class="nt">&lt;/defaultExtras&gt;</span>
+                        <span class="nt">&lt;/TCEforms&gt;</span>
+                    <span class="nt">&lt;/settings.text&gt;</span>
+                <span class="nt">&lt;/el&gt;</span>
+            <span class="nt">&lt;/ROOT&gt;</span>
+        <span class="nt">&lt;/sDEF&gt;</span>
+    <span class="nt">&lt;/sheets&gt;</span>
+<span class="nt">&lt;/T3DataStructure&gt;</span>
+
+</code></pre></div>
 	 </div>
     </div>
     <footer class="footer bs-docs-footer">

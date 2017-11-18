@@ -234,102 +234,45 @@
 </nav>
 
 	<div id="page-wrapper">
-		<div class="row">
-	<div class="col-lg-12">
-	  <h1 class="page-header">MY Dashboard</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<div class="row">
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-primary">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-comments fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">26</div>
-			  <div>New Comments!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-green">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-tasks fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">12</div>
-			  <div>New Tasks!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-yellow">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-shopping-cart fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">124</div>
-			  <div>New Orders!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-red">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-support fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">13</div>
-			  <div>Support Tickets!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-</div>
+		<h2>Beschreibung</h2>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">bool chmod <span class="o">(</span> string <span class="nv">$filename</span> , int <span class="nv">$mode</span> <span class="o">)</span>
+</code></pre></div>
+<p>Versucht die Zugriffsrechte der angegebenen Datei zu denen in mode definierten zu ändern.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nb">chmod</span><span class="p">(</span><span class="s2">"/einverzeichnis/einedatei"</span><span class="p">,</span> <span class="mi">755</span><span class="p">);</span>   <span class="c1">// decimal; probably incorrect
+</span><span class="nb">chmod</span><span class="p">(</span><span class="s2">"/einverzeichnis/einedatei"</span><span class="p">,</span> <span class="s2">"u+rwx,go+rx"</span><span class="p">);</span> <span class="c1">// string; incorrect
+</span><span class="nb">chmod</span><span class="p">(</span><span class="s2">"/einverzeichnis/einedatei"</span><span class="p">,</span> <span class="mo">0755</span><span class="p">);</span>  <span class="c1">// octal; correct value of mode
+</span><span class="cp">?&gt;</span>
+</code></pre></div>
+<h2>TYPO3</h2>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>chgrp <span class="nt">-R</span> apache fileadmin typo3conf typo3temp uploads
+<span class="nv">$ </span>chmod <span class="nt">-R</span> g+rwX,o-w fileadmin typo3temp typo3conf uploads
+
+<span class="nv">$ </span>chown <span class="nt">-R</span> root:apache typo3_src
+<span class="nv">$ </span>chmod <span class="nt">-R</span> 755 typo3_src
+<span class="nv">$ </span>chgrp <span class="nt">-R</span> www typo3_src
+<span class="nv">$ </span>typo3_src/typo3: chmod <span class="nt">-R</span> g+w ext
+
+<span class="c"># set all sysfolders 755</span>
+<span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> d <span class="nt">-exec</span> chmod 755 <span class="o">{}</span> <span class="se">\;</span>
+
+<span class="c"># set all files 644</span>
+<span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-exec</span> chmod 644 <span class="o">{}</span> <span class="se">\;</span>
+
+<span class="nv">$ </span>chmod 640 ./typo3conf/LocalConfiguration.php<span class="p">;</span>
+<span class="nv">$ </span>chmod 640 ./typo3conf/PackageStates.php<span class="p">;</span>
+
+<span class="c"># remove files "index.php~"</span>
+<span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-name</span> <span class="s2">"*~"</span> <span class="nt">-exec</span> rm <span class="o">{}</span> <span class="se">\;</span>
+<span class="c"># remove all ._* files</span>
+<span class="nv">$ </span>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"._*"</span> <span class="nt">-exec</span> rm <span class="nt">-f</span> <span class="o">{}</span> <span class="se">\;</span>
+</code></pre></div>
+<h3>TYPO3 LocalConfiguration</h3>
+
+<p>[BE][fileCreateMask] = 0664</p>
+
+<p>[BE][folderCreateMask] = 2775</p>
+
 	 </div>
     </div>
     <footer class="footer bs-docs-footer">

@@ -234,102 +234,76 @@
 </nav>
 
 	<div id="page-wrapper">
-		<div class="row">
-	<div class="col-lg-12">
-	  <h1 class="page-header">MY Dashboard</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<div class="row">
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-primary">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-comments fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">26</div>
-			  <div>New Comments!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-green">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-tasks fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">12</div>
-			  <div>New Tasks!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-yellow">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-shopping-cart fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">124</div>
-			  <div>New Orders!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-red">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-support fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">13</div>
-			  <div>Support Tickets!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-</div>
+		<h1>TYPO3 Command Line</h1>
+
+<h2>Accordion Command Controller.php</h2>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">namespace</span> <span class="nx">Cabag\BiozentrumAccordion\Command</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">\TYPO3\CMS\Core\Utility\GeneralUtility</span><span class="p">;</span>
+
+<span class="sd">/**
+ * class AccordionCommandController
+ *
+ */</span>
+<span class="k">class</span> <span class="nc">AccordionCommandController</span> <span class="k">extends</span> <span class="nx">\TYPO3\CMS\Extbase\Mvc\Controller\CommandController</span>
+<span class="p">{</span>
+    <span class="sd">/**
+     * php typo3/cli_dispatch.phpsh extbase biozentrum_accordion:accordion:accordion --dry-run=1
+     * Migrate default content Templavoilà objects to default textpic elements
+     *
+     * @param integer $templavoilaObjectId
+     * @param boolean $dryRun Dry run
+     * @return void
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">accordionCommand</span><span class="p">(</span><span class="nv">$templavoilaObjectId</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">$dryRun</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$where</span> <span class="o">=</span> <span class="s1">' '</span><span class="p">;</span>
+        <span class="c1">//$where .= 'AND uid = 4587';
+</span>
+        <span class="nv">$res</span> <span class="o">=</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'TYPO3_DB'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">exec_SELECTgetRows</span><span class="p">(</span>
+            <span class="s1">'uid,pid, tstamp,crdate,ExtractValue(tx_templavoila_flex, \'T3FlexForms/data/sheet/language/field[@index="field_inhalt"]/value[@index="vDEF"]\') as bodytext, ExtractValue(tx_templavoila_flex, \'T3FlexForms/data/sheet/language/field[@index="field_title"]/value\') as subheader, sys_language_uid,l18n_parent,\'biozentrumaccordion_accordion\' as CType'</span><span class="p">,</span> 
+            <span class="s1">'tt_content'</span><span class="p">,</span> 
+            <span class="s1">'tx_templavoila_ds = '</span> <span class="o">.</span> <span class="nb">intval</span><span class="p">(</span><span class="nv">$templavoilaObjectId</span><span class="p">)</span> <span class="o">.</span> <span class="s1">' AND tx_templavoila_to = 11'</span><span class="o">.</span> <span class="nv">$where</span><span class="p">,</span> 
+            <span class="s1">''</span><span class="p">,</span> 
+            <span class="s1">'l18n_parent ASC'</span>
+        <span class="p">);</span>
+
+
+
+        <span class="k">foreach</span><span class="p">(</span><span class="nv">$res</span> <span class="k">as</span> <span class="nv">$index</span> <span class="o">=&gt;</span> <span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$uid</span> <span class="o">=</span> <span class="nv">$result</span><span class="p">[</span><span class="s1">'uid'</span><span class="p">];</span>
+            <span class="nv">$result</span><span class="p">[</span><span class="s1">'bodytext'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">htmlspecialchars_decode</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">'bodytext'</span><span class="p">]);</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">updateContent</span><span class="p">(</span><span class="nv">$uid</span><span class="p">,</span> <span class="nv">$result</span><span class="p">,</span> <span class="nv">$dryRun</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+     * 
+     * @param integer $uid
+     * @param array $result
+     * @param boolean $dryRun
+     */</span>
+    <span class="k">private</span> <span class="k">function</span> <span class="nf">updateContent</span><span class="p">(</span><span class="nv">$uid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$result</span><span class="p">,</span> <span class="nv">$dryRun</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$updateWhere</span> <span class="o">=</span> <span class="s1">'uid = '</span> <span class="o">.</span> <span class="nv">$uid</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$dryRun</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'TYPO3_DB'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">exec_UPDATEquery</span><span class="p">(</span>
+                <span class="s1">'tt_content'</span><span class="p">,</span> <span class="nv">$updateWhere</span><span class="p">,</span> <span class="nv">$result</span>
+            <span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'TYPO3_DB'</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">UPDATEquery</span><span class="p">(</span>
+                <span class="s1">'tt_content'</span><span class="p">,</span> <span class="nv">$updateWhere</span><span class="p">,</span> <span class="nv">$result</span>
+            <span class="p">),</span><span class="s1">';'</span><span class="p">,</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<h2>ext_localconf.php</h2>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'TYPO3_CONF_VARS'</span><span class="p">][</span><span class="s1">'SC_OPTIONS'</span><span class="p">][</span><span class="s1">'extbase'</span><span class="p">][</span><span class="s1">'commandControllers'</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">'Cabag\\BiozentrumAccordion\\Command\\AccordionCommandController'</span><span class="p">;</span>
+
+</code></pre></div>
 	 </div>
     </div>
     <footer class="footer bs-docs-footer">

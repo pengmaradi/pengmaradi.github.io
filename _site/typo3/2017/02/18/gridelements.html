@@ -234,102 +234,154 @@
 </nav>
 
 	<div id="page-wrapper">
-		<div class="row">
-	<div class="col-lg-12">
-	  <h1 class="page-header">MY Dashboard</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<div class="row">
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-primary">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-comments fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">26</div>
-			  <div>New Comments!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-green">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-tasks fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">12</div>
-			  <div>New Tasks!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-yellow">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-shopping-cart fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">124</div>
-			  <div>New Orders!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-red">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-support fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">13</div>
-			  <div>Support Tickets!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-</div>
+		<h1>gridelements works with page TS, typoscript, dataProcessing and fluid templates</h1>
+
+<h2>page TS config</h2>
+<div class="highlight"><pre><code class="language-typoscript" data-lang="typoscript">
+tx_gridelements.setup {
+    accordion {
+        title = Accordion
+        alias = accordion
+        icon = EXT:custom_template/Resources/Public/Icons/accordion.svg
+        description = this is the test accordion
+        top_level_layout = 1
+        //flexformDS = FILE:EXT:custom_template/Configuration/FlexForm/Accordion.xml
+        frame = 1
+        config {
+            colCount = 1
+            rowCount = 1
+            rows {
+                1 {
+                    columns {
+                        1 {
+                            name = Accordion
+                            colPos = 10
+                            allowed = header,textmedia,bullets,table,uploads,multimedia,media,menu
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre></div>
+<h2>tt_content</h2>
+<div class="highlight"><pre><code class="language-typoscript" data-lang="typoscript">tt_content_accordion &lt; tt_content
+tt_content_accordion.stdWrap {
+    dataWrap &gt;
+    dataWrap (
+        &lt;div class="panel {field:tx_nabintra_accordeon_color}"&gt;
+            &lt;div class="item panel-heading" id="heading_{field:uid}"&gt;&lt;h4 class="panel-title"&gt;
+                &lt;a href="#collapse_{field:uid}" data-toggle="collapse" class="collapsed" role="button"  aria-expanded="false" aria-controls="collapse_{field:uid}"&gt;{field:tx_nabintra_accordeon_title}&lt;/a&gt;&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div id="collapse_{field:uid}" class="panel-collapse collapse"&gt;
+                &lt;a name="collapse_{field:uid}" class="anchorLink"&gt;&lt;/a&gt;
+                &lt;div class="panel-body panel-body-search "&gt;|&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    )
+
+    dataWrap.override.if.isTrue.field = tx_nabintra_tt_content_open
+    dataWrap.override (
+        &lt;div class="panel {field:tx_nabintra_accordeon_color}"&gt;
+            &lt;div class="item panel-heading" id="heading_{field:uid}"&gt;
+                &lt;h4 class="panel-title"&gt;&lt;a href="#collapse_{field:uid}" data-toggle="collapse" class="" role="button"  aria-expanded="false" aria-controls="collapse_{field:uid}"&gt;{field:tx_nabintra_accordeon_title}&lt;/a&gt;&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div id="collapse_{field:uid}" class="panel-collapse collapse in"&gt;
+                &lt;a name="collapse_{field:uid}" class="anchorLink"&gt;&lt;/a&gt;
+                &lt;div class="panel-body panel-body-search"&gt;|&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    )
+}
+
+tt_content.gridelements_pi1.20.10.setup {
+    accordion {
+        wrap = &lt;div class="accordion"&gt;&lt;div class="panel-group" id="accordion_{field:uid}"&gt;|&lt;/div&gt;&lt;/div&gt;
+        wrap.insertData = 1
+        columns {
+            default {
+                renderObj =&lt; tt_content_accordion
+            }
+        }
+    }
+}
+
+
+################################################################################
+#
+lib.fluidContent {
+    // add header layout h1, h2, h3 ...
+    partialRootPaths {
+        100 = EXT:custom_template/Resources/Private/Partials/
+    }
+
+    templateRootPaths {
+        100 = EXT:custom_template/Resources/Private/Templates
+    }
+}
+
+tt_content.gridelements_pi1.20.10.setup {
+    panel &lt; lib.gridelements.defaultGridSetup
+    panel {
+        # way 1: with fluid template
+        cObject = FLUIDTEMPLATE
+        cObject {
+            file = EXT:custom_template/Resources/Private/Templates/FCE/Panel.html
+        }
+    }
+
+ ###
+ # accordion
+    accordion &lt; lib.gridelements.defaultGridSetup
+    accordion {
+        columns.default.renderObj.20 =&lt; tt_content
+        columns.default.renderObj.20 {
+             # way 2:
+            header =&lt; lib.fluidContent
+            header {
+                templateRootPaths {
+                    200 = EXT:custom_template/Resources/Private/Templates/Template
+                }
+                # # way 2: fluid template EXT:custom_template/Resources/Private/Templates/Template/AccordionRaster.html
+                templateName = AccordionRaster
+                dataProcessing {
+                    20 = Xp\CustomTemplate\DataProcessing\AccordionProcessor
+                }
+            }
+            textmedia &lt; .header
+            textmedia {
+                templateName = Textmedia
+                dataProcessing =&lt; tt_content.textmedia.dataProcessing
+                dataProcessing.20 =  TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
+            }
+        }
+        wrap = &lt;div class="accordion accordion-gc" style="border:1px solid green; padding: 5px;margin:10px"&gt;|&lt;/div&gt;
+    }
+}
+</code></pre></div>
+<h2>html</h2>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html</span> <span class="na">xmlns:f=</span><span class="s">"http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"</span> <span class="na">xmlns:ce=</span><span class="s">"http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"</span> <span class="na">data-namespace-typo3-fluid=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"accordion accordion-{data.CType} ce_{data.uid}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>{data.header}<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text"</span><span class="nt">&gt;</span>{data.bodytext-&gt;f:format.html()}<span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"c{data.uid}"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;f:if</span> <span class="na">condition=</span><span class="s">"{gallery.position.vertical} != 'below'"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;f:render</span> <span class="na">partial=</span><span class="s">"MediaGallery"</span> <span class="na">arguments=</span><span class="s">"{_all}"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/f:if&gt;</span>
+
+            <span class="nt">&lt;f:if</span> <span class="na">condition=</span><span class="s">"{gallery.position.vertical} == 'below'"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;f:render</span> <span class="na">partial=</span><span class="s">"MediaGallery"</span> <span class="na">arguments=</span><span class="s">"{_all}"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/f:if&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
 	 </div>
     </div>
     <footer class="footer bs-docs-footer">
