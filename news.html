@@ -2,13 +2,15 @@
 layout: default
 ---
 
+{% for post in site.posts %}
+	{% capture post_count %} {{ post_count | plus: 1 }} {% endcapture %}
+{% endfor %}
 <div id="fluidContainer">
     <div id="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-header">
-                    Test Bolg
-                </h1>
+                <h1 class="page-header">Test Blog</h1><h3 class="post-subtitle">total: {{ post_count }}</h3>
+				<p class="post-meta">&nbsp;</p>
             </div>
         </div>
         <div class="row">
