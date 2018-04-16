@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "chmod test"
+title:  "easy plugin"
 date:   2018-04-16 16:16:01 -0100
 categories: typo3
 class: panel-green
