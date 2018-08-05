@@ -24,7 +24,10 @@
 	  {% include nav.html %}
 	<div id="page-wrapper">
 		<div class="row">
-			<div class="col-md-12">{{content}}</div>
+			<div class="col-md-12">
+				<div id="tipue_search_content"></div>
+				{{content}}
+			</div>
 		</div>
 	 </div>
     </div>
@@ -37,5 +40,12 @@
     <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/data/morris-data.js"></script>
     <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
     <script src="javascripts/respond.js"></script>
+	  
+
+<script>
+$(document).ready(function() {
+  $('#tipue_search_input').tipuesearch();
+});
+</script>
   </body>
 </html>
