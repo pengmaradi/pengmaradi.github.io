@@ -185,12 +185,14 @@
 			<ul class="nav" id="side-menu">
 				<li class="sidebar-search">
 					<div class="input-group custom-search-form">
-						<input type="text" class="form-control" placeholder="Search...">
+						<form action="/search">
+						<input type="text" class="form-control" placeholder="Search..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required="">
 						<span class="input-group-btn">
 						<button class="btn btn-default" type="button">
 							<i class="fa fa-search"></i>
 						</button>
 					</span>
+						</form>	
 					</div>
 					<!-- /input-group -->
 				</li>
