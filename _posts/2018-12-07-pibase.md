@@ -1,0 +1,141 @@
+---
+layout: default
+title:  "Pibase updaten"
+date:   2018-12-07 20:50
+categories: TYPO3
+class: panel-red
+description: Pibase to Namespace
+---
+
+## TYPO3 8.7 Pibase
+Frontend:
+Neuen Controller (Classes/Controller/) erstellen. Namespace Cabag\CabagEvents\Controller. Da sich die Funktion des Plugins nicht ändert, nennen wir ihn LegacyController, wenn es mehrere Legacy-Plugins gibt, benennen wir die Controller in LegacyPiXController um.
+Dieser Controller extendet wie bisher \TYPO3\CMS\Frontend\Plugin\AbstractPlugin
+Kompletten Quelltext aus der Klasse tx_cabagevents_piX in neue Klasse LegacyPiXController kopieren. XClass Signatur löschen
+Neue Datei erstellen: cabag_events/Migrations/Code/ClassAliasMap.php
+Dort den neuen Controller als Alias für den das alte Plugin definieren:
+
+```php
+return [
+    'tx_xxxxxx_piX' => \Vendor\NameSapce\Controller\LegacyPiXController::class
+];
+```
+
+Falls es weitere Plugins gibt, diese analog ins Array schreiben
+ab TYPO3 8.6 in composer.json noch den Autoloader für die ClassAliasMap konfigurieren:
+
+```json
+"extra": {
+"typo3/class-alias-loader": {
+"class-alias-maps": [
+"Migrations/Code/ClassAliasMap.php"
+]
+}
+}
+```
+
+In ext_localconf die Zeile 
+```php
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
+$_EXTKEY, 
+'piX/class.tx_cabagevents_piX.php', 
+'_piX', 
+'list_type', 
+0
+); 
+```
+umschreiben in 
+```php
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
+$_EXTKEY, 
+'Classes/Controller/LegacyPiXController.php', 
+'_piX', 
+'list_type', 
+0)
+;
+```
+Um sicher zu gehen, dass nicht mehr das alte Plugin geladen wird, die alte Klasse umbenennen oder löschen.
+Autoloader löschen, Cache leeren
+Damit sollte das Frontend wieder funktionieren
+
+Backend:
+in ext_tables.php den New Content Wizard Aufruf löschen:
+```php
+if (TYPO3_MODE == 'BE') {
+        $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_cabagevents_piX_wizicon'] = TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY).'piX/class.tx_cabagevents_piX_wizicon.php';
+}
+```
+
+in  ext_tables.php Flexform und addPlugin Aufrufe löschen
+```php
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_piX']='layout,select_key';
+
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_piX'] = 'pi_flexform';
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($_EXTKEY.'_piX', 'FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/tx_cabag_events_piX.xml');
+
+
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(array(
+        'LLL:EXT:cabag_events/locallang_db.xml:tt_content.list_type_pi1',
+        $_EXTKEY . '_pi1',
+        TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'ext_icon.gif'
+),'list_type');
+```
+
+ci_wiz.gif aus altem Plugin-Ordner in Resources/Public/Icons/ContentElementWizard.gif verschieben
+Neu in ext_localconf:
+
+```php
+// Register icon for piX
+\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class)->registerIcon(
+    'cabag-events-piX',
+    \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
+    ['source' => 'EXT:cabag_events/Resources/Public/Icons/ContentElementWizard.gif']
+);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+    mod.wizards.newContentElement.wizardItems.plugins {
+        elements.tx_cabagevents_piX {
+            iconIdentifier = cabag-events-piX
+            title = LLL:EXT:cabag_events/Resources/Private/Language/locallang.xml:pi3_title
+            description = LLL:EXT:cabag_events/Resources/Private/Language/locallang.xml:pi1_plus_wiz_description
+            cabag_events_defValues {
+                CType = list
+                list_type = tx_cabagevents_piX
+            }
+        }
+        show :=addToList(tx_cabagevents_piX)
+    }
+');
+```
+Neu in Configuration/TCA/Overrides/tt_content.php
+
+```php
+<?php
+defined('TYPO3_MODE') or die();
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+    [
+        'LLL:EXT:cabag_events/Resources/Private/Language/locallang_db.xlf:pi_cabag_events',
+        'cabag_events_piX'
+    ],
+    'list_type',
+    'cabag_events'
+);
+// add flexform to pi1
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['cabag_events_piX'] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['cabag_events_piX'] = 'layout,select_key,pages,recursive';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('cabag_events_piX', 'FILE:EXT:cabag_events/Configuration/FlexForms/Pi1.xml');
+```
+
+Alten piX-Ordner löschen
+
+
+
+
+WIP: Folgende Schritte sind Notwendig, um ein pibase Plugin (Abstract Plugin) zu einem Extbase Plugin umzuschreiben:
+    
+Beispiel mit einer Extension mit underscore im Namen (z.B. cabag_events)
+    
+Neuen Controller (Classes/Controller/) erstellen. Namespace Cabag\CabagEvents\Controller. 
+Da sich die Funktion des Plugins nicht ändert, nennen wir ihn LegacyController, wenn es mehrere Legacy-Plugins gibt, benennen wir die Controller in LegacyPiXController um.
+Die alte Einstiegsmethode war main($content, $conf). Neu erstellt man eine mainAction und kopiert den kompletten Quelltext von main() hierher. 
+Anschliessend alle weiteren Methoden der Klasse. 
+Um inkompatible Methodenaufrufe kümmern wir uns später
