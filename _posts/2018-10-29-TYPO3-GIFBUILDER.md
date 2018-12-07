@@ -4,7 +4,7 @@ title:  "TYPO3 7.6 GIFBUILDER"
 date:   2018-10-29 14:09:01 -0100
 categories: typo3
 class: panel-green
-description: TYPO3 GIFBUILDER from page property 7.6
+description: TYPO3 GIFBUILDER from page property
 ---
 
 ## typoscript
