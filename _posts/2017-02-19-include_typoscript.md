@@ -9,39 +9,24 @@ description: include the typoscript in file
 
 #include config of backendlayout
 
--- BackendLayouts
-
-    -- default.txt
-
-    -- default1.txt
-
-    -- default2.txt
-
-    -- default3.txt
-
-    -- default4.txt
-
-    -- default5.txt
-
+-- BackendLayouts/
+    -- default.ts
+    -- default1.ts
+    -- default2.ts
+    -- default3.ts
+    -- default4.ts
+    -- default5.ts
     -- ...
 
 ```typoscript
-### include all folder txts
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts" extensions="txt">
+### include all folder tses extensions="ts"
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts" extensions="ts">
 
-### include default.txt
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/default.txt">
-
-### include default1.txt
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/default1.txt">
-```
-
-```php
-var_dump($_SERVER); 
-
-
-
-
+### old way to include default.ts
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/default.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/default1.ts">
+  ...
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:custom_template/Configuration/TypoScript/PageTSconfig/BackendLayouts/defaultn.ts">
 ```
 
 
