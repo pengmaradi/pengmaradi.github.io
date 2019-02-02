@@ -4,33 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="{{ site.url }}" />
     <title>{{site.name}}</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/sb-admin-2.min.css">
-    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/metisMenu.min.css">
     <link rel="stylesheet" href="stylesheets/sb-admin-2.css">
     <link rel="stylesheet" href="stylesheets/morris.css">
-
+    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
   </head>
   <body>
+
     <div id="wrapper">
 	  {% include nav.html %}
+     
+      
 	<div id="page-wrapper">
-		<div class="row">
-			<div class="col-md-12">
-				{{content}}
-			</div>
-		</div>
+		{{content}}
 	 </div>
+   	  
     </div>
     {% include footer.html %}
-    <!--
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    -->
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
     <script src="javascripts/metisMenu.min.js"></script>
@@ -39,6 +38,5 @@
     <script src="javascripts/morris-data.js"></script>
     <script src="javascripts/sb-admin-2.js"></script>
     <script src="javascripts/respond.js"></script>
-
   </body>
 </html>
