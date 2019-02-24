@@ -10,7 +10,9 @@ description: TYPO3 Backend Module
 ## TYPO3 Version 9 Backend Module use ajax
 
 ### Mudule register
+
 * ext_tables.php
+
 ```PHP
 if (TYPO3_MODE === 'BE') {
 	
@@ -30,7 +32,10 @@ if (TYPO3_MODE === 'BE') {
 ```
 
 ### ajax register
+
 * Configuration/Backend/AjaxRoutes.php
+* http://www.domain.local/typo3/index.php?route=/ajax/run/shell&token=756af2eea1c2740b3b060265af5918f24ba9c455
+
 ```PHP
 <?php
 return [
@@ -40,6 +45,7 @@ return [
 	],
 ];
 ```
+
 ### AdministrationController.php
 
 ```PHP
@@ -52,7 +58,9 @@ public function runShellAction(
   }
 ```
 ### JavaScript
+
 * custom_template/Resources/Public/JavaScript/AdministrationModule.js
+
 ```JavaScript
 define(['jquery'], function($) {
 // hier can use $ - jQuery
@@ -63,6 +71,7 @@ define(['jquery'], function($) {
 ### JS im Fluid Template
 
 * Layout/Default includeRequireJsModules, includeCssFiles, includeJsFiles
+
 ```HTML
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 	<f:be.container
@@ -79,7 +88,9 @@ define(['jquery'], function($) {
 </html>
 
 ```
+
 * Template: Shell.html includeRequireJsModules: TYPO3/CMS/CustomTemplate/AdministrationModule
+
 ```HTML
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
 	  data-namespace-typo3-fluid="true">
