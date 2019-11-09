@@ -36,7 +36,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['test_pi1'] =
 
 * FlexForm
 
-`xml
+```xml
 <T3DataStructure>
 	<sheets>
 		<!--
@@ -115,7 +115,7 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['test_pi1'] =
 ```html
 <f:link.action action="show" pageUid="54">show</f:link.action>
 <f:link.action action="list" pageUid="4">back</f:link.action>
-`
+```
 
 
 
