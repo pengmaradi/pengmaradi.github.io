@@ -10,7 +10,7 @@ description: TYPO3 switchable Controller Actions
 
 * configure Plugin
 
-`php
+```php
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'Xp.Test',
             'Pi1',
@@ -22,17 +22,17 @@ description: TYPO3 switchable Controller Actions
                 'Test' => ''
             ]
         );
-`
+```
 
 * add PiFlexForm (ext_tables.php or Configuration/TCA/Overrides/tt_content.php)
 
-`php
+```php
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['test_pi1'] = 'pi_flexform';
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
             'test_pi1', 
             'FILE:EXT:test/Configuration/FlexForms/contentPlugin.xml'
         );
-`
+```
 
 * FlexForm
 
@@ -108,11 +108,11 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['test_pi1'] =
 
 	</sheets>
 </T3DataStructure>
+```
 
-`
 * Action link
 
-`html
+```html
 <f:link.action action="show" pageUid="54">show</f:link.action>
 <f:link.action action="list" pageUid="4">back</f:link.action>
 `
