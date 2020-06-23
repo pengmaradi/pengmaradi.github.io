@@ -126,7 +126,7 @@ class CsvCommandController extends CommandController
             return false;
         }
 
-        \TYPO3\CMS\Core\Utility\DebugUtility::debug($input);
+        //\TYPO3\CMS\Core\Utility\DebugUtility::debug($input);
         foreach($input as $k => $v) {
             //\TYPO3\CMS\Core\Utility\DebugUtility::debug([$k, $v]);
             $v['pid'] = 60;
