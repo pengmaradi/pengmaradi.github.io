@@ -65,8 +65,6 @@ class CsvCommandController extends CommandController
     {
         $input = $this->csvToArray();
         $output = $this->mapper($input);
-
-        $this->jobRepository->add($output);
     }
 
     /**
