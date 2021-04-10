@@ -4,16 +4,16 @@ title:  "TYPO3 Command Line"
 date:   2017-03-09 08:38:59 -0100
 categories: TYPO3
 class: panel-green
-description: Command Lind for TYPO3
+description: Command Line for TYPO3 6,7,8
 ---
 
-# TYPO3 Command Line
+# TYPO3 Command Line change tx_templavoila_flex to custom_ext
 
 ## Accordion Command Controller.php
 
 ```php
 <?php
-namespace Cabag\BiozentrumAccordion\Command;
+namespace Vendor\BiozentrumAccordion\Command;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -79,7 +79,7 @@ class AccordionCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Comma
 
 ```php
 <?php
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'Cabag\\BiozentrumAccordion\\Command\\AccordionCommandController';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'Vendor\\BiozentrumAccordion\\Command\\AccordionCommandController';
 
 ```
 
