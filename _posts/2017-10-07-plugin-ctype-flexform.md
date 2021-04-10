@@ -65,9 +65,9 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 
 ### Configuration /TCA /Overrides /tt_content.php
 
-* addPiFlexFormValue
+* addPiFlexFormValue CustomTimetable.xml
 
-```XML CustomTimetable.xml
+```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <T3DataStructure>
     <meta type="array">
@@ -97,7 +97,7 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 </T3DataStructure>
 ```
 
-* Xp\CustomTeaser\DataProcessing\FlexFormProcessor
+* class FlexFormProcessor: Xp\CustomTeaser\DataProcessing\FlexFormProcessor
 
 ```PHP
 <?php
@@ -166,28 +166,28 @@ call_user_func(
     function()
     {
         // add Flexform	to 	plugin
-//		$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['your_plugin'] = 'pi_flexform';
-//		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-//			'your_plugin',
-//			'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml'
-//		);
+	// $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['your_plugin'] = 'pi_flexform';
+	// \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+	// 	'your_plugin',
+	// 	'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml'
+	// );
 		
-		// Add a flexform to the htmlio_pi1 CType
-		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-			'',
-			'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml',
-			'your_plugin'
-		);
+	// Add a flexform to the htmlio_pi1 CType
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+		'',
+		'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml',
+		'your_plugin'
+	);
+	
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+		'Xp.htmlio',
+		'Pi1',
+		'your plugin'
+	);
 		
-		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-			'Xp.htmlio',
-			'Pi1',
-			'your plugin'
-		);
 		
-		
-		$GLOBALS['TCA']['tt_content']['types']['your_plugin'] = [
-			'showitem'=> '
+	$GLOBALS['TCA']['tt_content']['types']['your_plugin'] = [
+	'showitem'=> '
 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general, pi_flexform,
 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.default.hidden,
 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -202,6 +202,7 @@ call_user_func(
 
 ## custom field in tt_content
 1. ext_tables.sql
+
 ```SQL
 #
 # Table structure for table 'tt_content'
