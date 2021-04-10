@@ -22,7 +22,7 @@ defined('TYPO3') or die();
 // # autoload pageTS - typo3conf/ext/custom_teaser/Configuration/TCA/Overrides/pages.php
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:ext_name/Configuration/PageTS/pageSetup.txt">');
 
-// or like this
+// or like this, include via backend root page property/resources
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'custom_teaser',
     'Configuration/TypoScript/PageTS/Page.tsconfig',
