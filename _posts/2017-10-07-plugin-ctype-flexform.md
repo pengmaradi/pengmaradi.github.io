@@ -67,7 +67,7 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 
 * addPiFlexFormValue CustomTimetable.xml
 
-```XML
+```HTML
 <?xml version="1.0" encoding="UTF-8"?>
 <T3DataStructure>
     <meta type="array">
