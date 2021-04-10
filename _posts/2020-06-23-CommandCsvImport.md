@@ -9,7 +9,9 @@ description: Custom command
 
 ### recommend Symfony Console Commands
 
-```PHP FeUserImportCommand.php
+* FeUserImportCommand.php
+
+```PHP
 <?php
 declare(strict_types = 1);
 namespace Xp\CustomTemplate\Command;
@@ -157,9 +159,10 @@ class FeUserImportCommand extends Command
         }
     }
 }
-
 ```
+
 ### typo3conf/ext/custom_template/Configuration/Services.yaml
+
 ```YAML
 services:
   _defaults:
@@ -176,11 +179,14 @@ services:
       - name: 'console.command'
         command: 'customtemplate:feuserimport'
 ```
+
 ### create user.csv in fileadmin/user_upload/Import/
+
 ```CSV
 "username","password","name","last_name","email"
 "demo","pwd","Tom","Cat","tom@cat.tld"
 ```
+
 ### Execute console commands (scheduler) try it
 
 # TYPO3 8
