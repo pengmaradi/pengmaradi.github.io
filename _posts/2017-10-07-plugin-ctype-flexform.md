@@ -66,6 +66,7 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 ### Configuration /TCA /Overrides /tt_content.php
 
 * addPiFlexFormValue
+
 ```XML CustomTimetable.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <T3DataStructure>
@@ -95,7 +96,9 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
     </sheets>
 </T3DataStructure>
 ```
+
 * Xp\CustomTeaser\DataProcessing\FlexFormProcessor
+
 ```PHP
 <?php
 declare(strict_types = 1);
@@ -144,7 +147,9 @@ class FlexFormProcessor implements DataProcessorInterface
     }
 }
 ```
+
 * fluid html template
+
 ```HTML
 style="{f:if(condition: '{flexform.settings.colorpicker}', then: 'background:{flexform.settings.colorpicker};')}"
 ```
@@ -207,6 +212,7 @@ CREATE TABLE tt_content (
 ```
 
 2. additionalColumns TCA config
+
 ```PHP
 $additionalColumns = [
    'tx_custom_show' => [
@@ -228,6 +234,7 @@ $additionalColumns = [
 ```
 
 3. addTCAcolumns
+
 ```PHP
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $additionalColumns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
@@ -270,6 +277,7 @@ $additionalColumns = [
 ```
 
 4. addToAllTCAtypes
+
 ```PHP
  \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tt_content',
@@ -280,6 +288,7 @@ $additionalColumns = [
 ```
 
 5. fluid template
+
 ```HTML
 <f:if condition="{data.tx_custom_show}">
    show list here: ...
