@@ -35,7 +35,7 @@ class Ajax
 
   public function testAction(ServerRequestInterface $request): ResponseInterface
   {
-$configurationManager = GeneralUtility::makeInstance(ConfigurationManager::class);
+        $configurationManager = GeneralUtility::makeInstance(ConfigurationManager::class);
         $typoScript = $configurationManager->getConfiguration(
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT,
             'intranet_template'
