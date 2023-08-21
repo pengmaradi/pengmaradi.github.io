@@ -2,7 +2,7 @@
 layout: default
 title:  "TYPO3 Middleware"
 date:   2023-08-20 15:20:01 -0100
-categories: Middleware
+categories: middleware
 class: panel-green
 description: TYPO3 Middleware, pageType, session, $GLOBALS['TSFE']
 ---
