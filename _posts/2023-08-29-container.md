@@ -8,7 +8,8 @@ description: TYPO3 b13/container, container use fluid default layout
 ---
 
 1. add field to tt_content custom CType accordion
-```PHP
+
+```
 // Accordion
 \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\B13\Container\Tca\Registry::class)->configureContainer(
     (
@@ -44,13 +45,17 @@ description: TYPO3 b13/container, container use fluid default layout
     'after:header'
 );
 ```
+
 2. reset container default header label "Name (in der Webseite nicht sichtbar)"
+
 ```pageTS
 TCEFORM.tt_content.header.types.accordion {
 	label = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.header
 }
 ```
+
 3. define your CType Template
+
 ```TS
 lib.contentElement {
     templateRootPaths.220 = EXT:your_ext/Resources/Extensions/toolbox/html/Templates/
@@ -61,7 +66,9 @@ tt_content.accordion {
     templateName = Accordion
 }
 ```
+
 4. fluid template
+
 ```html
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
@@ -70,4 +77,5 @@ some html code ...
 </f:section>
 </html>
 ```
+
 So, your accordion gets header, header_layout and pi_flexform fields. And it renders auto header
