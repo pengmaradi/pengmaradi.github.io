@@ -50,15 +50,22 @@ use Xp\CustomTemplate\Domain\Repository\FrontendUserRepository;
 
 class ImportFeuserCommand extends Command
 {
-    protected FrontendUserRepository $userRepository;
-    protected PersistenceManager $persistenceManager;
+    public function __construct(
+        protected FrontendUserRepository $userRepository,
+        protected PersistenceManager $persistenceManager,
+        protected PasswordHashFactory $passwordHashFactory,
+        protected PropertyMapper $propertyMapper,
+        string $name = null
+    ) {
+        parent::__construct($name);
+    }
 
     protected function configure(): void
     {
         $this->setDescription('import fe users from json file')
-            ->setHelp('run ./vendor/bin/typo3 custom-template:import-feuser <pid> <json_url>');
-        $this->addArgument('pid', InputArgument::REQUIRED, 'set the pid');
-        $this->addArgument('json_url', InputArgument::OPTIONAL, 'json url', 'https://jsonplaceholder.typicode.com/users');
+            ->setHelp('run ./vendor/bin/typo3 custom-template:import-feuser <pid> <json_url>')
+            ->addArgument('pid', InputArgument::REQUIRED, 'set the pid')
+            ->addArgument('json_url', InputArgument::OPTIONAL, 'json url', 'https://jsonplaceholder.typicode.com/users');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -81,15 +88,14 @@ class ImportFeuserCommand extends Command
 
     private function saveUser(array $users, int $pid, OutputInterface $output)
     {
-        $propertyMapper = GeneralUtility::makeInstance(PropertyMapper::class);
         $mappingConfiguration = GeneralUtility::makeInstance(PropertyMappingConfigurationBuilder::class)
             ->build();
-
-        $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
-        $pwd = $hashInstance->getHashedPassword($users['email']);
+        // check the hashInstance, if not works, needs makeInstance class
+        $this->hashInstance->getDefaultHashInstance('FE');
+        $pwd = $this->hashInstance->getHashedPassword($users['email']);
 
         /**@var $newUser FrontendUser */
-        $newUser = $propertyMapper->convert(
+        $newUser = $this->propertyMapper->convert(
             [
                 'name' => $users['name'],
                 'password' => $pwd,
@@ -101,9 +107,6 @@ class ImportFeuserCommand extends Command
             $mappingConfiguration
         );
 
-        $this->userRepository = GeneralUtility::makeInstance(FrontendUserRepository::class);
-
-        $this->persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $this->userRepository->add($newUser);
         $this->persistenceManager->persistAll();
 
@@ -185,6 +188,123 @@ return [
 ```
 
 
+### old code
+
+```
+<?php
+
+declare(strict_types = 1);
+
+namespace Xp\CustomTemplate\Command;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+class FeUserImportCommand extends Command
+{
+    private $csvPath;
+
+    protected function configure()
+    {
+        $this->setDescription('CustomTemplate: import fe users bei csv files')
+            ->setHelp('Prints a list of recent sys_log entries.' . LF . 'If you want to get more detailed information, use the --verbose option.');
+        $this->addArgument('userGroup', InputArgument::REQUIRED, 'User group (default 1)');
+        $this->addArgument('pageUid', InputArgument::REQUIRED, 'Page ID with existing users');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $userGroup = (int)$input->getArgument('userGroup');
+        $pageUid = (int)$input->getArgument('pageUid');
+
+        try {
+            $this->mapper($this->csvToArray($userGroup, $pageUid));
+            $message = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Messaging\FlashMessage::class,
+                'import fe users to page: '.$pageUid,
+                'CustomTemplate Command',
+                \TYPO3\CMS\Core\Messaging\FlashMessage::OK,
+                true
+            );
+            $output->writeln($message);
+            return 0;
+        } catch (\Exception $e) {
+            $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Messaging\FlashMessage::class,
+                'information: '. $e->getMessage(),
+                'CustomTemplate Command',
+                \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING,
+                true
+            );
+            $output->writeln($message);
+            throw new \Exception('Could not write, error: ' . $e->getMessage());
+            return 1;
+        }
+    }
+
+    private function csvToArray($userGroup = 1, $pageUid = 25)
+    {
+        $this->csvPath = \TYPO3\CMS\Core\Core\Environment::getPublicPath().'/fileadmin/user_upload/Import/';
+        $csvs = $this->scanFold($this->csvPath);
+        $usergroup = $userGroup;
+        $pid = $pageUid;
+        $delimiter = ',';
+        if($csvs) {
+            $header = NULL;
+            $data = [];
+            $csvFormat = '/\.csv/';
+            $csvs = preg_grep($csvFormat, $csvs);
+            foreach($csvs as $csv) {
+                if(!file_exists($this->csvPath.$csv) || !is_readable($this->csvPath.$csv)) {
+                    return false;
+                }
+
+                if(($handle = fopen($this->csvPath.$csv, 'r')) !== FALSE) {
+                    while (($row = fgetcsv($handle, 1000, $delimiter)) !== FALSE) {
+                        if(!$header) {
+                            $header = $row;
+                            array_push($header, 'pid');
+                            array_push($header, 'usergroup');
+                        } else {
+                            array_push($row, $pid);
+                            array_push($row, $usergroup);
+                            $data[] = array_combine($header, $row);
+                        }
+                    }
+                    fclose($handle);
+                }
+                //$content = trim(file_get_contents($this->csvPath.$csv));
+            }
+        }
+        return $data;
+    }
+
+    private function mapper(array $input)
+    {
+        if(!is_array($input)) {
+            return false;
+        }
+
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('fe_users');
+
+        foreach($input as $k => $v) {
+            $affectedRows = $queryBuilder
+                ->insert('fe_users')
+                ->values($v)
+                ->execute();
+        }
+    }
+
+    private function scanFold($csvPath)
+    {
+        if(is_dir($csvPath)) {
+            return array_diff(scandir($csvPath), ['.', '..']);
+        }
+    }
+}
+```
 
 
 # TYPO3 8
