@@ -71,6 +71,16 @@ mysql -udev -pdev -hmysql typo3 -e "ALTER TABLE tx_powermail_domain_model_field 
 ```
 
 ## v7 to v11
+maybe you need some extensions
+```
+"require-dev": {
+    "ichhabrecht/core-upgrader": "dev-master",
+    "internetgalerie/ig-slug": "^1.0",
+    "lolli/dbdoctor": "^0.5.0",
+    "ssch/typo3-rector": "^1.3"
+},
+```
+
 ```
 #!/usr/bin/env bash
 
