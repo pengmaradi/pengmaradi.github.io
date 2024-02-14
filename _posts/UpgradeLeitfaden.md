@@ -70,7 +70,7 @@ mysql -udev -pdev -hmysql typo3 -e "ALTER TABLE tx_powermail_domain_model_field 
 -- mysql -udev -pdev -hmysql typo3 -e "UPDATE tx_powermail_domain_model_field SET css = 'col-sm-6' WHERE css = 'split';"
 ```
 
-## v7 to v9
+## v7 to v11
 ```
 #!/usr/bin/env bash
 
@@ -105,5 +105,22 @@ then
   ./vendor/bin/typo3cms upgrade:wizard sysCategorySlugs -v
 fi
 ```
+### v12
+```
+#!/bin/bash
 
+cat <<EOF
+****************************************
+TYPO3 Core from 11.5 to 12.4 update
+$(date +%F)
+****************************************
+EOF
+
+echo "update db schema (table.add + field.add)"
+./vendor/bin/typo3 database:updateschema table.add
+./vendor/bin/typo3 database:updateschema field.add
+
+./vendor/bin/typo3 upgrade:run -vvv
+
+```
 
