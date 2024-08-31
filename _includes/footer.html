@@ -1,6 +1,7 @@
-<footer class="footer bs-docs-footer">
-    <div class="container-fluid">
-        layout is {{page.layout}} <br/>
-    	date: {{site.time | date_to_long_string}}
-    </div>
-</footer>
+
+<div class="container">
+    <i>Layout ist {{page.layout}}</i>
+    <p>{{site.time | date_to_long_string}}</p>
+    <p>© pengmaradi {{ site.time | date: "%Y" }}</p>
+</div>
+
