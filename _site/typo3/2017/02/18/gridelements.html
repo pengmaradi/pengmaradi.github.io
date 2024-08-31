@@ -1,46 +1,139 @@
 <!doctype html>
-<html>
-  <head>
+<html x-cloak x-data="darkMode" :class="[
+        htmlclass, 
+            (
+                localStorage.theme === 'dark' 
+                || (!('theme' in localStorage) 
+                && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) ? 'dark' : 'light'
+        ]" lang="en">
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="/" />	  
-    <title>Pengmaradi.GitHub.io</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/metisMenu.min.css">
-    <link rel="stylesheet" href="stylesheets/sb-admin-2.css">
-    <link rel="stylesheet" href="stylesheets/morris.css">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <base href="/" />
+    <title>typo3 gridelements</title>
+    <meta name="generator" content="jekyll serve github" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="gridelements works with fluid templates" />
 
-  </head>
-  <body>
+    <link rel="apple-touch-icon" sizes="192x192" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="30x30" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="logo.png" />
+    <link rel="icon" href="favicon.ico" type="image/x-ico; charset=binary" />
 
-    <div id="wrapper">
-	  
+    <link rel="stylesheet" href="assets/main.css" />
+</head>
 
-<nav>
-    
-    <a href="/" >
-        Home
-    </a>
-    
-    <a href="/news.html" >
-        Blog
-    </a>
-    
-    <a href="/profile.html" >
-        About
-    </a>
-    
+<body>
+    <div class="continer">
+        <header>
+            
+
+<nav class="bg-gray-800" x-data="{
+    showMenu: false,
+    sendMail() {
+        let link = `mailto:pengmaradi@gmail.com
+        ?subject=mail from pengmaradi.github.io
+        `
+        window.location.href = link;
+        return false;
+    }
+}">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <!-- Mobile menu button-->
+                <button type="button"
+                    @click="showMenu = !showMenu;"
+                    class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="absolute -inset-0.5"></span>
+                    <span class="sr-only">Open main menu</span>
+
+                    <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+
+                    <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex flex-shrink-0 items-center">
+                    <a href="/">
+                        <img class="h-8 w-auto" src="logo.png" alt="pengmaradi art" />
+                    </a>
+                </div>
+                <div class="hidden sm:ml-6 sm:block">
+                    <div class="flex space-x-4">
+                        
+                        <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-white">
+                            Home
+                        </a>
+                        
+                        <a href="/news.html" class="rounded-md px-3 py-2 text-sm font-medium text-white">
+                            Blog
+                        </a>
+                        
+                        <a href="/profile.html" class="rounded-md px-3 py-2 text-sm font-medium text-white">
+                            About
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div class="relative ml-3">
+                    <div>
+                        <button type="button"
+                            @click="sendMail();"
+                            class="cursor-pointer relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">contact</span>
+                            <img class="h-8 w-8 rounded-full"
+                                src="https://avatars.githubusercontent.com/u/1831210?v=4"
+                                alt="pengmaradi">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sm:hidden" id="mobile-menu" x-show="showMenu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+            
+            <a href="/" class="block rounded-md px-3 py-2 text-base font-medium text-white" >
+                Home
+            </a>
+            
+            <a href="/news.html" class="block rounded-md px-3 py-2 text-base font-medium text-white" >
+                Blog
+            </a>
+            
+            <a href="/profile.html" class="block rounded-md px-3 py-2 text-base font-medium text-white" >
+                About
+            </a>
+            
+        </div>
+    </div>
 </nav>
 
+<button class="test absolute right-0 top-12" @click="toggleDarkmode()">Toggle Dark Mode</button>
 
-<button class="test" @click="toggleDarkmode()">Toggle Dark Mode</button>
-
-     
-      
-	<div id="page-wrapper">
-		<h1 id="gridelements-works-with-page-ts-typoscript-dataprocessing-and-fluid-templates">gridelements works with page TS, typoscript, dataProcessing and fluid templates</h1>
+        </header>
+        <main class="mt-10 p-2 min-h-screen">
+            <h1 id="gridelements-works-with-page-ts-typoscript-dataprocessing-and-fluid-templates">gridelements works with page TS, typoscript, dataProcessing and fluid templates</h1>
 
 <h2 id="page-ts-config">page TS config</h2>
 
@@ -193,17 +286,20 @@ tt_content.gridelements_pi1.20.10.setup {
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
-	 </div>
-   	  
-    </div>
-    
+        </main>
+        <footer class="relative bg-gray-900 text-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-24">
+            
 <div class="container">
-    <i>Layout ist default</i>
+    <i>Layout ist tailwind</i>
     <p>31 August 2024</p>
     <p>© pengmaradi 2024</p>
 </div>
 
 
+        </footer>
+    </div>
 
-  </body>
+    <script type="module" src="assets/main.js"></script>
+</body>
+
 </html>
