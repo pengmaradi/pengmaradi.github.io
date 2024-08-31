@@ -13,12 +13,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/" />
-    <title>{{ page.name }}</title>
+    <title>{{ page.title }}</title>
     <meta name="generator" content="jekyll serve github" />
     <meta name="keywords" content="{{ page.key }}" />
     <meta name="description" content="{{ page.description }}" />
 
-    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="apple-touch-icon" sizes="192x192" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="30x30" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="logo.png" />
+    <link rel="icon" href="favicon.ico" type="image/x-ico; charset=binary" />
+
+    <link rel="stylesheet" href="assets/main.css" />
 </head>
 
 <body>
@@ -26,15 +34,15 @@
         <header>
             {% include header.html %}
         </header>
-        <main>
+        <main class="mt-10 p-2 min-h-screen">
             {{content}}
         </main>
-        <footer>
+        <footer class="relative bg-gray-900 text-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-24">
             {% include footer.html %}
         </footer>
     </div>
 
-    <script src="javascripts/main.js"></script>
+    <script type="module" src="assets/main.js"></script>
 </body>
 
 </html>

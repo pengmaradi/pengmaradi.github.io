@@ -2,6 +2,8 @@ import './index.pcss'
 
 import Alpine from 'alpinejs'
 import './js/dark'
+import './js/Glightbox'
+import './js/videoModal'
 
 
 // import { StrictMode } from 'react'

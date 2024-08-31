@@ -16,7 +16,8 @@ Thumbs.db
 
 webstats
 
-_site
+_site/
+_site/*
 serve
 node_modules
 assets/*
