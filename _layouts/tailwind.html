@@ -29,7 +29,15 @@
     <link rel="stylesheet" href="assets/main.css" />
 </head>
 
-<body>
+<body x-data="{show_backToTop: false}" @scroll.window="show_backToTop = window.pageYOffset > 30">
+    <div :class="show_backToTop ? 'block' : 'is-hidden'">
+
+        <div id="back_To_Top" x-ref="backTotop" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="scrollTop fixed overflow-hidden bottom-0 right-0 z-10 cursor-pointer">
+            <p>Back to top</p>
+        </div>
+
+    </div>
     <div class="continer">
         <header>
             {% include header.html %}
