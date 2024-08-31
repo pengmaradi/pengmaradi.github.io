@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 Command Line"
-date:   2017-03-09 08:38:59 -0100
+layout: tailwind
+title: "TYPO3 Command Line"
+date: 2017-03-09 08:38:59 -0100
 categories: TYPO3
 class: panel-green
 description: Command Line for TYPO3 6,7,8
@@ -34,26 +34,26 @@ class AccordionCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Comma
 	{
 		$where = ' ';
 		//$where .= 'AND uid = 4587';
-		
+
 		$res = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows(
-			'uid,pid, tstamp,crdate,ExtractValue(tx_templavoila_flex, \'T3FlexForms/data/sheet/language/field[@index="field_inhalt"]/value[@index="vDEF"]\') as bodytext, ExtractValue(tx_templavoila_flex, \'T3FlexForms/data/sheet/language/field[@index="field_title"]/value\') as subheader, sys_language_uid,l18n_parent,\'biozentrumaccordion_accordion\' as CType', 
-			'tt_content', 
-			'tx_templavoila_ds = ' . intval($templavoilaObjectId) . ' AND tx_templavoila_to = 11'. $where, 
-			'', 
+			'uid,pid, tstamp,crdate,ExtractValue(tx_templavoila_flex, \'T3FlexForms/data/sheet/language/field[@index="field_inhalt"]/value[@index="vDEF"]\') as bodytext, ExtractValue(tx_templavoila_flex, \'T3FlexForms/data/sheet/language/field[@index="field_title"]/value\') as subheader, sys_language_uid,l18n_parent,\'biozentrumaccordion_accordion\' as CType',
+			'tt_content',
+			'tx_templavoila_ds = ' . intval($templavoilaObjectId) . ' AND tx_templavoila_to = 11'. $where,
+			'',
 			'l18n_parent ASC'
 		);
-		
-		
-		
+
+
+
 		foreach($res as $index => $result) {
 			$uid = $result['uid'];
 			$result['bodytext'] = htmlspecialchars_decode($result['bodytext']);
 			$this->updateContent($uid, $result, $dryRun);
 		}
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param integer $uid
 	 * @param array $result
 	 * @param boolean $dryRun
@@ -75,14 +75,10 @@ class AccordionCommandController extends \TYPO3\CMS\Extbase\Mvc\Controller\Comma
 
 ```
 
-## ext_localconf.php 
+## ext_localconf.php
 
 ```php
 <?php
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'Vendor\\BiozentrumAccordion\\Command\\AccordionCommandController';
 
 ```
-
-
-
-

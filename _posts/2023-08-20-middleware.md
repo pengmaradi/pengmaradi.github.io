@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 Middleware"
-date:   2023-08-20 15:20:01 -0100
+layout: tailwind
+title: "TYPO3 Middleware"
+date: 2023-08-20 15:20:01 -0100
 categories: middleware
 class: panel-green
 description: TYPO3 Middleware, pageType, session, $GLOBALS['TSFE']
@@ -21,6 +21,7 @@ yourPage {
     }
 }
 ```
+
 ## Configuration/RequestMiddlewares.php
 
 ```PHP
@@ -40,7 +41,9 @@ return [
     ],
 ];
 ```
+
 ## Configuration/Services.yaml
+
 ```YAML
 services:
   _defaults:
@@ -55,7 +58,9 @@ services:
   Vendor\Package\Middleware\GetPhraseMiddleware:
     public: true
 ```
+
 ## Classes/Middleware/GetPhraseMiddleware.php
+
 ```PHP
 class GetPhraseMiddleware implements MiddlewareInterface
 {
@@ -87,6 +92,8 @@ class GetPhraseMiddleware implements MiddlewareInterface
     return $response;
 }
 ```
+
 ### description
+
 now TYPO3 frontend can get or set sessions by use index.php?type=123456
 much fun :)

@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 container"
-date:   2023-08-29 08:22:01 -0100
+layout: tailwind
+title: "TYPO3 container"
+date: 2023-08-29 08:22:01 -0100
 categories: container
 class: panel-green
 description: TYPO3 b13/container, container use fluid default layout
@@ -70,11 +70,12 @@ tt_content.accordion {
 4. fluid template
 
 ```html
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
-<f:section name="Main">
-some html code ...
-</f:section>
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true"
+>
+  <f:layout name="Default" />
+  <f:section name="Main"> some html code ... </f:section>
 </html>
 ```
 

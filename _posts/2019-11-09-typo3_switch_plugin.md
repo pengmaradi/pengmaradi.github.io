@@ -1,14 +1,15 @@
 ---
-layout: default
-title:  "TYPO3 Extbase Flexform"
-date:   2019-09-28 18:30:01 -0100
+layout: tailwind
+title: "TYPO3 Extbase Flexform"
+date: 2019-09-28 18:30:01 -0100
 categories: TYPO3
 class: panel-green
 description: TYPO3 switchable Controller Actions
 ---
+
 # TYPO3 Extbase: Standard Action per Flexform festlegen - switchableControllerActions
 
-* configure Plugin
+- configure Plugin
 
 ```php
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
@@ -24,17 +25,17 @@ description: TYPO3 switchable Controller Actions
         );
 ```
 
-* add PiFlexForm (ext_tables.php or Configuration/TCA/Overrides/tt_content.php)
+- add PiFlexForm (ext_tables.php or Configuration/TCA/Overrides/tt_content.php)
 
 ```php
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['test_pi1'] = 'pi_flexform';
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-            'test_pi1', 
+            'test_pi1',
             'FILE:EXT:test/Configuration/FlexForms/contentPlugin.xml'
         );
 ```
 
-* FlexForm
+- FlexForm
 
 ```xml
 <T3DataStructure>
@@ -110,12 +111,9 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['test_pi1'] =
 </T3DataStructure>
 ```
 
-* Action link
+- Action link
 
 ```html
 <f:link.action action="show" pageUid="54">show</f:link.action>
 <f:link.action action="list" pageUid="4">back</f:link.action>
 ```
-
-
-

@@ -1,18 +1,20 @@
 ---
-layout: default
-title:  "extbase sorting"
-date:   2020-02-16 13:30:01 -0100
+layout: tailwind
+title: "extbase sorting"
+date: 2020-02-16 13:30:01 -0100
 categories: typo3
 class: panel-green
 description: extbase sorting
 ---
 
-
 ### 1. add sorting field in sql
+
 ```SQL
 sorting int(11) unsigned DEFAULT '0' NOT NULL,
 ```
+
 ### 2. add sorting in TCA
+
 ```php
 'ctrl' => [
         'sortby' => 'sorting',
@@ -27,6 +29,7 @@ sorting int(11) unsigned DEFAULT '0' NOT NULL,
 ```
 
 ### 2. Model.php
+
 ```php
     /**
      * @var int
@@ -56,15 +59,18 @@ sorting int(11) unsigned DEFAULT '0' NOT NULL,
 ```
 
 ### 3. Repository
+
 ```php
 protected $defaultOrderings = array(
     'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
 );
 
 ```
+
 ### it will sorting by ASC automatic
 
 ### if object has sub object, but has no owner repository, can also use Custom VieHelpers oder VHS sort VieHelpers
+
 ```php
 <?php
 namespace Xp\CustomTemplate\ViewHelpers;
@@ -204,12 +210,16 @@ class SortViewHelper extends AbstractViewHelper
         return $value;
     }
 
-	
+
 }
 
 ```
 
 ```html
 xmlns:x="http://typo3.org/ns/Xp/CustomTemplate/ViewHelpers"
-<f:for each="{shop.aktions->x:sort(subject: shop.aktions ,sortBy:'sorting')}" as="aktion" iteration="a">
+<f:for
+  each="{shop.aktions->x:sort(subject: shop.aktions ,sortBy:'sorting')}"
+  as="aktion"
+  iteration="a"
+></f:for>
 ```

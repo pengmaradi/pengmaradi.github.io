@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "easy plugin"
-date:   2018-04-16 16:16:01 -0100
+layout: tailwind
+title: "easy plugin"
+date: 2018-04-16 16:16:01 -0100
 categories: typo3
 class: panel-green
 description: TYPO3 Extbase
@@ -31,6 +31,7 @@ defined('TYPO3_MODE') || die('Access denied.');
 );
 
 ```
+
 ## Configuration/TCA/Overrides/tt_content.php
 
 ```php
@@ -61,6 +62,7 @@ defined('TYPO3_MODE') || die('Access denied.');
 	'hi the Product plugin'
 );
 ```
+
 ## Classes/Controller/ProductController.php
 
 ```php
@@ -136,6 +138,3 @@ class ProductController extends ActionController
 }
 
 ```
-
-
-

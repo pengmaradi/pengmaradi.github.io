@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tailwind
 title:  "typo3 gridelements"
 date:   2017-02-18 09:58:01 -0100
 categories: typo3

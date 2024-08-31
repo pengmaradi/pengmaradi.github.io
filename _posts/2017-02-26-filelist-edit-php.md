@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "filelist edit php"
-date:   2017-02-26 16:40:01
+layout: tailwind
+title: "filelist edit php"
+date: 2017-02-26 16:40:01
 categories: typo3
 class: panel-red
 description: enable filelist edit php files
