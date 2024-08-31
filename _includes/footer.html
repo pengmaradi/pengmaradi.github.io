@@ -1,7 +1,22 @@
 
-<div class="container">
-    <i>Layout ist {{page.layout}}</i>
-    <p>{{site.time | date_to_long_string}}</p>
-    <p>© pengmaradi {{ site.time | date: "%Y" }}</p>
+
+<div class="flex flex-col md:flex-row">
+    <div class="w-full lg:w-2/6 lg:mx-4 lg:pr-8">
+        <i>Layout ist {{page.layout}}</i>
+        <p>{{site.time | date_to_long_string}}</p>
+        <p>© pengmaradi {{ site.time | date: "%Y" }}</p>
+    </div>
+    <div class="w-full lg:w-2/6 lg:mx-4 lg:pr-8">
+        <h5 class="uppercase tracking-wider font-semibold">
+            Kontakt
+        </h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo maxime nam sequi eligendi? Aut corporis dolore porro
+        dolores praesentium facilis, necessitatibus temporibus exercitationem debitis itaque voluptatibus placeat provident,
+        error saepe?</p>
+    </div>
+    <div class="w-full lg:w-2/6 mt-8 lg:mt-0 lg:mx-4 lg:pr-8">
+        <a href="/news.html">TYPO3 blog</a>
+    </div>
 </div>
+
 
