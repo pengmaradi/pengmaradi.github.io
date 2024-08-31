@@ -19,4 +19,8 @@ webstats
 _site
 serve
 node_modules
-build
+assets/*
+!assets/main.js
+!assets/main.css
+
+package-lock.json
