@@ -1,351 +1,153 @@
 <!doctype html>
-<html>
-  <head>
+<html x-cloak x-data="darkMode" :class="[
+        htmlclass, 
+            (
+                localStorage.theme === 'dark' 
+                || (!('theme' in localStorage) 
+                && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) ? 'dark' : 'light'
+        ]" lang="en">
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="http://localhost:4000" />
-    <title>Pengmaradi.GitHub.io</title>
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <base href="/" />
+    <title>index.html</title>
+    <meta name="generator" content="jekyll serve github" />
+    <meta name="keywords" content="ceramic, papemache" />
+    <meta name="description" content="hallo welt" />
 
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="stylesheets/main.css">
+</head>
 
-  </head>
-  <body>
-    <div id="wrapper">
-	  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="https://github.com/pengmaradi">pengmaradi</a>
-	</div>
-	<!-- /.navbar-header -->
+<body>
+    <div class="continer">
+        <header>
+            
 
-	<ul class="nav navbar-top-links navbar-right">
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-user">
-				<li><a href="mailto:pengmaradi@gmail.com"><i class="fa fa-envelope fa-fw"></i> Contact me!</a>
-				</li>
-			</ul>
-
-		</li>
-		<!-- /.dropdown -->
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-tasks">
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 1</strong>
-								<span class="pull-right text-muted">40% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-									<span class="sr-only">40% Complete (success)</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 2</strong>
-								<span class="pull-right text-muted">20% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-									<span class="sr-only">20% Complete</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 3</strong>
-								<span class="pull-right text-muted">60% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-									<span class="sr-only">60% Complete (warning)</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 4</strong>
-								<span class="pull-right text-muted">80% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									<span class="sr-only">80% Complete (danger)</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a class="text-center" href="#">
-						<strong>See All Tasks</strong>
-						<i class="fa fa-angle-right"></i>
-					</a>
-				</li>
-			</ul>
-			<!-- /.dropdown-tasks -->
-		</li>
-		<!-- /.dropdown -->
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-alerts">
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-comment fa-fw"></i> New Comment
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-twitter fa-fw"></i> 3 New Followers
-							<span class="pull-right text-muted small">12 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-envelope fa-fw"></i> Message Sent
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-tasks fa-fw"></i> New Task
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-upload fa-fw"></i> Server Rebooted
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a class="text-center" href="#">
-						<strong>See All Alerts</strong>
-						<i class="fa fa-angle-right"></i>
-					</a>
-				</li>
-			</ul>
-			<!-- /.dropdown-alerts -->
-		</li>
-		<!-- /.dropdown -->
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-user">
-				<li><a href="profile.html"><i class="fa fa-user fa-fw"></i> My Profile</a>
-				</li>
-				<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-				</li>
-				<li class="divider"></li>
-				<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-				</li>
-			</ul>
-			<!-- /.dropdown-user -->
-		</li>
-		<!-- /.dropdown -->
-	</ul>
-	<!-- /.navbar-top-links -->
-
-	<div class="navbar-default sidebar" role="navigation">
-		<div class="sidebar-nav navbar-collapse">
-			<ul class="nav" id="side-menu">
-				<li class="sidebar-search">
-					<div class="input-group custom-search-form">
-						<input type="text" class="form-control" placeholder="Search...">
-						<span class="input-group-btn">
-						<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-						</button>
-					</span>
-					</div>
-					<!-- /input-group -->
-				</li>
-				<li>
-					<a href="/"><i class="fa fa-dashboard fa-fw"></i> Home</a>
-				</li>
-				<li>
-					<a href="news.html"><i class="fa fa-bar-chart-o fa-fw"></i> News</a>
-				</li>
-				<li>
-					<a href="example.html"><i class="fa fa-bar-chart-o fa-fw"></i> Carousel</a>
-				</li>
-			</ul>
-		</div>
-		<!-- /.sidebar-collapse -->
-	</div>
-	<!-- /.navbar-static-side -->
+<nav>
+    
+    <a href="/" class="active" >
+        Home
+    </a>
+    
+    <a href="/news.html" >
+        Blog
+    </a>
+    
+    <a href="/profile.html" >
+        About
+    </a>
+    
 </nav>
 
-	<div id="page-wrapper">
-		<div class="row">
-	<div class="col-lg-12">
-	  <h1 class="page-header">MY Dashboard</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<div class="row">
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-primary">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-comments fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">26</div>
-			  <div>New Comments!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-green">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-tasks fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">12</div>
-			  <div>New Tasks!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-yellow">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-shopping-cart fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">124</div>
-			  <div>New Orders!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-	<div class="col-lg-3 col-md-6">
-  <div class="panel panel-red">
-	 <div class="panel-heading">
-		<div class="row">
-		   <div class="col-xs-3">
-			  <i class="fa fa-support fa-5x"></i>
-		   </div>
-		   <div class="col-xs-9 text-right">
-			  <div class="huge">13</div>
-			  <div>Support Tickets!</div>
-		   </div>
-		</div>
-	 </div>
-	 <a href="#">
-		<div class="panel-footer">
-		   <span class="pull-left">View Details</span>
-		   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-		   <div class="clearfix"></div>
-		</div>
-	 </a>
-  </div>
-</div>
-</div>
-	 </div>
-    </div>
-    <footer class="footer bs-docs-footer">
-    <div class="container-fluid">
-        layout is default <br/>
-    	date: 18 November 2017
-    </div>
-</footer>
 
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/raphael/raphael.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/data/morris-data.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
-    <script src="javascripts/respond.js"></script>
-  </body>
+<button class="test" @click="toggleDarkmode()">Toggle Dark Mode</button>
+
+        </header>
+        <main>
+            <ul>
+    
+    <li>
+        <h3>kreps </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczOL30ZKcawQUaZLHT75uDPd3PvgrY3ho-R-jizrDvTVvcQsdnUeI9T4pLKx8U54bgUNoLxMvnwv8jp0Rvy59-QcBhdHG58I3Q6FuBENt1VMy_dRecAi=w2400" 
+        width="200"
+        alt="kreps" />
+        <p>Porzellan Auf Glasur, über 1200°C</p>
+    </li>
+    
+    <li>
+        <h3>vase green </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczPsVJCXh1sdQB0DT6LSnF1oBkUmUxPLLEAbVeWt64SwC2RJZO9SMbMXM18v1Lf9d8I5-4e2HkranFl5udk9YbK3HfVvOj1noFeVzgpa9moYuvwn1DT4=w2400" 
+        width="200"
+        alt="vase green" />
+        <p>Porzellen Vase, Gipsform mit Celaton Glasur</p>
+    </li>
+    
+    <li>
+        <h3>vase white </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczNZn6ofx1m70z1LUOYoMmm2F_2zHXkABznkEEKk-5blU3Ie8DrkdmCgI0-l6UtdziHoxvc_sHwVXOk4_FiENu4bed8ttPXI3HGOeo0DCYHtTUfOj6x7=w2400" 
+        width="200"
+        alt="vase white" />
+        <p>ohne Gasur, Gipsform mit scharz und weiss Wände</p>
+    </li>
+    
+    <li>
+        <h3>tieger </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczPFpGA7pO_kgO6rduW1Y0-DLu7Oq1-0Auk_rT0c6jOBxP1nUZCi6jjEqTmVS8oaAn7csGbiOr7p8voc0tSJPDpejsBgbgoT1Sj5YEN3UXTFRt8a2JDg=w2400" 
+        width="200"
+        alt="tieger" />
+        <p>rot Blumen</p>
+    </li>
+    
+    <li>
+        <h3>hüchen </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczPkPlUeG3ZENnZkHB9NlEYMtxcpRwKv0K79BBALm-QoqunheX2UnEsVw68f_g4mWq1dRKLPt7NXHujkav5dRS9ISHTV07J2bYXE5Sq9L3-XYBQIS_Ri=w2400" 
+        width="200"
+        alt="hüchen" />
+        <p>xiao ji</p>
+    </li>
+    
+    <li>
+        <h3>fisch </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczP5A3NF1jQhvvyCBJaIdyJbeO4K9u0Da76lMLq70UbHU75ma64pixxJ-cBp4j70ClwEzb7bWvmlKyH_dCc6m7n8U2I0hTPkgT0I0w2ZYPuvQaKahTnR=w2400" 
+        width="200"
+        alt="fisch" />
+        <p>yu</p>
+    </li>
+    
+    <li>
+        <h3>rappe </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczP9r_OP9dnmUN8G8csiAULujYUMbhalM8PihemCWKgsVPP7-jjLh31bZSzXRn0X-cH82cePqzF3Wxr6yr0vrTwwl8Gp3YIk1be-FhyesGAiYrTU5Fqz=w2400" 
+        width="200"
+        alt="rappe" />
+        <p>wu ya</p>
+    </li>
+    
+    <li>
+        <h3>orchiden </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczNqm9x5iZvv1VC1KeaCm677EdMMxsTcIoRt3np4TDOeaRlw4_mW_khMAKNY61ljcgJR5sGVZ-Kix_tZz1LkdvL5hqiJEINij7a_YV9Svj8XRaqLzks9=w2400" 
+        width="200"
+        alt="orchiden" />
+        <p>lan hua</p>
+    </li>
+    
+    <li>
+        <h3>kopf </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczNB6tWcZ2W1--1HwjYNrkXDAzdHYda_PbpaB2POxOVN6U_BoyRsiS4COiKZJJ8MsyV8rVsLHaiaYldSp0CzkBELXBpPByAlmE6FAHMvhYByERWHhIgg=w2400" 
+        width="200"
+        alt="kopf" />
+        <p>Kopf im Buch</p>
+    </li>
+    
+    <li>
+        <h3>Geiste </h3>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczOQ6CQ3maTbx9i3lbHHgwcws0r8CUy0IWy_NDs8CnL93XiNc0HO6zeO8UsSY2hiTFsleCO5hXym52IFxW4wqJqZot_iiO008zNId_tH6EmIlZ5hQbl4=w2400" 
+        width="200"
+        alt="Geiste" />
+        <p>Geiste ...</p>
+    </li>
+    
+</ul>
+
+
+<img width="500" src="https://lh3.googleusercontent.com/pw/AP1GczPnRNkGm0pbMvfWcTf9XMTDCRj_Xv-gElJkfx8KoanhRT3Lb4bOLFNytJcXOWqMBp5HHwJhsXLVTTHEV2OMdPLp0aYvB8j1qdXNOfGOSj8efQ5HYHCN=w2400" alt="hi">
+
+        </main>
+        <footer>
+            
+<div class="container">
+    <i>Layout ist tailwind</i>
+    <p>31 August 2024</p>
+    <p>© pengmaradi 2024</p>
+</div>
+
+
+        </footer>
+    </div>
+
+    <script src="javascripts/main.js"></script>
+</body>
+
 </html>
