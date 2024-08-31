@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 fe_users import Command"
-date:   2023-10-14 18:06:01 -0100
+layout: tailwind
+title: "TYPO3 fe_users import Command"
+date: 2023-10-14 18:06:01 -0100
 categories: typo3
 class: panel-red
 description: Custom command cli import json
@@ -9,7 +9,8 @@ description: Custom command cli import json
 
 ### recommend Symfony Console Commands
 
-* Register the command Services.yaml:
+- Register the command Services.yaml:
+
 ```yaml
 services:
   _defaults:
@@ -19,14 +20,13 @@ services:
 
   Xp\CustomTemplate\Command\ImportFeuserCommand:
     tags:
-      -
-        name: console.command
-        command: 'custom-template:import-feuser'
-        description: 'import fe users from json file'
+      - name: console.command
+        command: "custom-template:import-feuser"
+        description: "import fe users from json file"
         schedulable: true
 ```
 
-* Create the command class ImportFeuserCommand.php
+- Create the command class ImportFeuserCommand.php
 
 ```PHP
 <?php
@@ -150,7 +150,7 @@ class ImportFeuserCommand extends Command
 
 ```
 
-* Create your FrontendUser Domain\Model and FrontendUserRepository
+- Create your FrontendUser Domain\Model and FrontendUserRepository
 
 ```php
 // your FrontendUser
@@ -172,7 +172,7 @@ class FrontendUserRepository extends Repository {}
 
 ```
 
-* Custom Model mappaing Configuration/Extbase/Persistence/Classes.php
+- Custom Model mappaing Configuration/Extbase/Persistence/Classes.php
 
 ```php
 <?php
@@ -186,7 +186,6 @@ return [
 ];
 
 ```
-
 
 ### old code
 
@@ -305,7 +304,6 @@ class FeUserImportCommand extends Command
     }
 }
 ```
-
 
 # TYPO3 8
 

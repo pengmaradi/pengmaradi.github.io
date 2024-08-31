@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 Module"
-date:   2019-02-24 14:23:08 -0100
+layout: tailwind
+title: "TYPO3 Module"
+date: 2019-02-24 14:23:08 -0100
 categories: typo3
 class: panel-green
 description: TYPO3 Backend Module
@@ -11,11 +11,11 @@ description: TYPO3 Backend Module
 
 ### Mudule register
 
-* ext_tables.php
+- ext_tables.php
 
 ```PHP
 if (TYPO3_MODE === 'BE') {
-	
+
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'Xp.CustomTemplate',
 		'tools',
@@ -33,8 +33,8 @@ if (TYPO3_MODE === 'BE') {
 
 ### ajax register
 
-* Configuration/Backend/AjaxRoutes.php
-* http://www.domain.local/typo3/index.php?route=/ajax/run/shell&token=756af2eea1c2740b3b060265af5918f24ba9c455
+- Configuration/Backend/AjaxRoutes.php
+- http://www.domain.local/typo3/index.php?route=/ajax/run/shell&token=756af2eea1c2740b3b060265af5918f24ba9c455
 
 ```PHP
 <?php
@@ -57,9 +57,10 @@ public function runShellAction(
     // some code hier!
   }
 ```
+
 ### JavaScript
 
-* custom_template/Resources/Public/JavaScript/AdministrationModule.js
+- custom_template/Resources/Public/JavaScript/AdministrationModule.js
 
 ```JavaScript
 define(['jquery'], function($) {
@@ -67,10 +68,9 @@ define(['jquery'], function($) {
 });
 ```
 
-
 ### JS im Fluid Template
 
-* Layout/Default includeRequireJsModules, includeCssFiles, includeJsFiles
+- Layout/Default includeRequireJsModules, includeCssFiles, includeJsFiles
 
 ```HTML
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
@@ -89,7 +89,7 @@ define(['jquery'], function($) {
 
 ```
 
-* Template: Shell.html includeRequireJsModules: TYPO3/CMS/CustomTemplate/AdministrationModule
+- Template: Shell.html includeRequireJsModules: TYPO3/CMS/CustomTemplate/AdministrationModule
 
 ```HTML
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
@@ -100,9 +100,5 @@ define(['jquery'], function($) {
 	<f:be.pageRenderer includeRequireJsModules="{0:'TYPO3/CMS/CustomTemplate/AdministrationModule'}" />
   // your other html code
 </f:section>
-</html>  
+</html>
 ```
-
-
-
-

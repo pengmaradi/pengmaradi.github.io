@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 plugin as CType with flexform"
-date:   2021-04-10 14:44:01 -0100
+layout: tailwind
+title: "TYPO3 plugin as CType with flexform"
+date: 2021-04-10 14:44:01 -0100
 categories: typo3
 class: panel-green
 description: plugin as CType
@@ -11,8 +11,8 @@ description: plugin as CType
 
 ### ext_tables.php
 
-* addStaticFile
-* addPageTSConfig
+- addStaticFile
+- addPageTSConfig
 
 ```php
 defined('TYPO3') or die();
@@ -44,7 +44,7 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 
 ### ext_localconf.php
 
-* configurePlugin
+- configurePlugin
 
 ```php
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
@@ -55,17 +55,17 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 	),
 	array(
 		'Class' => '',
-		
+
 	),
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 ```
 
-* configurePlugin
+- configurePlugin
 
 ### Configuration /TCA /Overrides /tt_content.php
 
-* addPiFlexFormValue CustomTimetable.xml
+- addPiFlexFormValue CustomTimetable.xml
 
 ```HTML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -97,7 +97,7 @@ mod.wizards.newContentElement.wizardItems.common.show := addToList(your_plugin)
 </T3DataStructure>
 ```
 
-* class FlexFormProcessor: Xp\CustomTeaser\DataProcessing\FlexFormProcessor
+- class FlexFormProcessor: Xp\CustomTeaser\DataProcessing\FlexFormProcessor
 
 ```PHP
 <?php
@@ -148,15 +148,14 @@ class FlexFormProcessor implements DataProcessorInterface
 }
 ```
 
-* fluid html template
+- fluid html template
 
 ```HTML
 style="{f:if(condition: '{flexform.settings.colorpicker}', then: 'background:{flexform.settings.colorpicker};')}"
 ```
 
-* registerPlugin
-* $GLOBALS['TCA']['tt_content']['types']['your_plugin'] = ['showitem'=>'pi_flexform'];
-
+- registerPlugin
+- $GLOBALS['TCA']['tt_content']['types']['your_plugin'] = ['showitem'=>'pi_flexform'];
 
 ```php
 <?php
@@ -171,21 +170,21 @@ call_user_func(
 	// 	'your_plugin',
 	// 	'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml'
 	// );
-		
+
 	// Add a flexform to the htmlio_pi1 CType
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
 		'',
 		'FILE:EXT:htmlio/Configuration/FlexForm/Your.xml',
 		'your_plugin'
 	);
-	
+
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 		'Xp.htmlio',
 		'Pi1',
 		'your plugin'
 	);
-		
-		
+
+
 	$GLOBALS['TCA']['tt_content']['types']['your_plugin'] = [
 	'showitem'=> '
 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general, pi_flexform,
@@ -201,6 +200,7 @@ call_user_func(
 ```
 
 ## custom field in tt_content
+
 1. ext_tables.sql
 
 ```SQL
@@ -253,17 +253,17 @@ $additionalColumns = [
             bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
             pi_flexform,
 
-         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance, 
+         --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
             --palette--;;frames,
             --palette--;;appearanceLinks,
-         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, 
+         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
             --palette--;;language,
-         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, 
+         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
             --palette--;;hidden,
             --palette--;;access,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories, 
-        --div--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_category.tabs.category, categories, 
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription, 
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+        --div--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_category.tabs.category, categories,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes, rowDescription,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
       ',
    'columnsOverrides' => [
@@ -295,5 +295,3 @@ $additionalColumns = [
    show list here: ...
 </f:if>
 ```
-
-

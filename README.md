@@ -6,5 +6,5 @@ pengmaradi.github.io for host domain
 ### localhost
 
 ```bash
-$ jekyll serve
+$ jekyll serve --trace
 ```

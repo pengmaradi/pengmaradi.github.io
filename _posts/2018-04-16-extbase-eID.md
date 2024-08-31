@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "extbase eID"
-date:   2018-04-16 17:29:01 -0100
+layout: tailwind
+title: "extbase eID"
+date: 2018-04-16 17:29:01 -0100
 categories: typo3
 class: panel-green
 description: TYPO3 extbase eID
@@ -92,7 +92,7 @@ class Ajax
 
         return $response->withBody($body);
   }
-  
+
   private function getContentByUid(int $uid)
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
@@ -120,75 +120,70 @@ class Ajax
 ## ajax.js
 
 ```javascript
-import $ from 'jquery';
+import $ from "jquery";
 
 export default class Banner {
+  static initialize() {
+    function padTo2Digits(num) {
+      return num.toString().padStart(2, "0");
+    }
+    function formatDate(date) {
+      return [
+        padTo2Digits(date.getDate()),
+        padTo2Digits(date.getMonth() + 1),
+        date.getFullYear(),
+      ].join(".");
+    }
 
-    static initialize() {
-        function padTo2Digits(num) {
-            return num.toString().padStart(2, '0');
-        }
-        function formatDate(date) {
-            return [
-                padTo2Digits(date.getDate()),
-                padTo2Digits(date.getMonth() + 1),
-                date.getFullYear(),
-            ].join('.');
-        }
+    let today = new Date(),
+      month = today.getMonth(),
+      firstDayOfMonth = new Date(today.getFullYear(), month, 1),
+      dayOfWeek = firstDayOfMonth.getDay(),
+      daysToWednesday = (3 - dayOfWeek + 7) % 7,
+      firstWednesday = formatDate(
+        new Date(today.getFullYear(), month, daysToWednesday + 1)
+      );
 
-        let today = new Date(),
-          month = today.getMonth(),
-          firstDayOfMonth = new Date(today.getFullYear(), month, 1),
-          dayOfWeek = firstDayOfMonth.getDay(),
-          daysToWednesday = (3 - dayOfWeek + 7) % 7,
-          firstWednesday = formatDate(new Date(today.getFullYear(), month, daysToWednesday + 1));
-
-        setInterval(function() {
-            $.ajax({
-                type : 'post',
-                url : 'index.php',
-                data: {
-                    eID: 'banner',
-                    tx_banner_show: {
-
-                    }
-                },
-                success : function(data) {
-                    let bannerContainer = $('.banner-maintenance-window');
-                    if (data.show) {
-                        let returnText = ``;
-                        if (data.dateOfFirstWednesday && data.text) {
-                            returnText = `
+    setInterval(function () {
+      $.ajax({
+        type: "post",
+        url: "index.php",
+        data: {
+          eID: "banner",
+          tx_banner_show: {},
+        },
+        success: function (data) {
+          let bannerContainer = $(".banner-maintenance-window");
+          if (data.show) {
+            let returnText = ``;
+            if (data.dateOfFirstWednesday && data.text) {
+              returnText = `
                             <div class="container-fluid" style="padding:2rem 0;">
                                     <div class="mask-breakingnews__title">
                                         ${data.text}
                                     </div>
                                 </div>
                             `;
-                        } else {
-                            returnText = `
+            } else {
+              returnText = `
                                 <div class="container-fluid" style="padding:2rem 0;">
                                     <div class="mask-breakingnews__title">
                                         Vorankündigung Wartungsfenster: Am Mittwoch, ${firstWednesday} zwischen 12:00 und 13:00 Uhr kann es infolge von Wartungsarbeiten zu Unterbrüchen in der Verfügbarkeit kommen.
                                     </div>
                                 </div>
                             `;
-                        }
+            }
 
-                        bannerContainer.html(returnText);
-                    } else {
-                        // demo
-                        //bannerContainer.html(` <div class="container-fluid" style="padding:2rem 0;"><span>${data.h}:${data.i}:${data.s}</span></div>`);
-                        bannerContainer.html('');
-                    }
-                },
-                error : function() {
-                }
-            });
+            bannerContainer.html(returnText);
+          } else {
+            // demo
+            //bannerContainer.html(` <div class="container-fluid" style="padding:2rem 0;"><span>${data.h}:${data.i}:${data.s}</span></div>`);
+            bannerContainer.html("");
+          }
+        },
+        error: function () {},
+      });
     }, 1000);
-    }
+  }
 }
-
-
 ```
-

@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 tca displayCond"
-date:   2017-10-07 09:23:00 -0100
+layout: tailwind
+title: "TYPO3 tca displayCond"
+date: 2017-10-07 09:23:00 -0100
 categories: typo3
 class: panel-green
 description: requestUpdate and displayCond
@@ -9,17 +9,16 @@ description: requestUpdate and displayCond
 
 ## Beschreibung
 
-
 ```php
 <?php
 return [
     'ctrl' => [
         'title' => 'your title',
 
-        // code ...  
-        
+        // code ...
+
         // js "type" changed Refresh required
-        // This change will affect which fields are available in the form. 
+        // This change will affect which fields are available in the form.
         // Would you like to save now in order to refresh the display?
         'requestUpdate' => 'type',
         // code ...
@@ -61,7 +60,7 @@ return [
                     'FIELD:type:=:3',
                 ],
             ],
-            
+
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
@@ -121,7 +120,7 @@ return [
                 ],
                 // gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg
                 //$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-                'jpg,jpeg,png'  
+                'jpg,jpeg,png'
             ),
         ],
         'source' => [
@@ -175,9 +174,8 @@ return [
                 ]
             ),
         ],
-    
+
     ],
 ];
 
 ```
-

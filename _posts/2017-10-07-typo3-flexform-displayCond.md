@@ -1,14 +1,13 @@
 ---
-layout: default
-title:  "TYPO3 flexform displayCond"
-date:   2017-10-07 09:23:00 -0100
+layout: tailwind
+title: "TYPO3 flexform displayCond"
+date: 2017-10-07 09:23:00 -0100
 categories: typo3
 class: panel-green
 description: flexform displayCond
 ---
 
 ## Beschreibung
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -28,7 +27,7 @@ description: flexform displayCond
                     <settings.procent>
                         <TCEforms>
                             <label>Width of the iframe in 100%</label>
-                            <onChange>reload</onChange> 
+                            <onChange>reload</onChange>
                             <config>
                                 <type>check</type>
                                 <default>1</default>

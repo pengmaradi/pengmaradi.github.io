@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 sys_category"
-date:   2020-02-16 12:53:01 -0100
+layout: tailwind
+title: "TYPO3 sys_category"
+date: 2020-02-16 12:53:01 -0100
 categories: sys_category
 class: panel-green
 description: extbase add sys_category
@@ -13,7 +13,8 @@ description: extbase add sys_category
 
 ```SQL
 categories int(11) unsigned DEFAULT '0' NOT NULL,
-````
+```
+
 ### 2. added TCA config in custom tca php
 
 ```php
@@ -34,6 +35,7 @@ categories int(11) unsigned DEFAULT '0' NOT NULL,
     ]
 ],
 ```
+
 ### 3. ext_name/Configuration/TCA/Overrides/sys_category.php
 
 ```php
@@ -49,6 +51,7 @@ categories int(11) unsigned DEFAULT '0' NOT NULL,
 );
 $GLOBALS['TCA']['custom_table']['columns']['categories']['config']['MM_match_fields']['sorting'] = 'sorting';
 ```
+
 ### 4. typo3conf/ext/ext_name/Classes/Domain/Model/Category.php
 
 ```php
@@ -58,6 +61,7 @@ class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category
 {
 }
 ```
+
 ### 5. typo3conf/ext/ext_name/Classes/Domain/Repository/CategoryRepository.php
 
 ```php
@@ -81,30 +85,31 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
     }
 }
 ```
+
 ### 6. typo3conf/ext/ext_name/Classes/Domain/Model/Custom.php
 
 ```php
     /**
      * categories
-     * 
+     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $categories = null;
-    
+
     /**
      * Returns the categories
-     * 
+     *
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
      */
     public function getCategories()
     {
         return $this->categories;
     }
-    
+
     /**
      * Sets the categories
-     * 
+     *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories
      * @return void
      */
@@ -133,16 +138,16 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
 ```php
     /**
      * categoryRepository
-     * 
+     *
      * @var \Dyn\DynPwd\Domain\Repository\CategoryRepository
      * @TYPO3\CMS\Extbase\Annotation\Inject
-     * 
+     *
      */
     protected $categoryRepository = null;
-    
+
     /**
      * action list
-     * 
+     *
      * @return void
      */
     public function listAction()
@@ -151,6 +156,7 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
         $this->view->assign('categories', $categories);
     }
 ```
+
 ### 8. enable the plugin use sys_category in TYPOSCRIPT
 
 ```TYPOSCRIPT
@@ -182,5 +188,3 @@ data-category='[<f:if condition="{pwd.categories}">
 <f:then><f:for each="{pwd.categories}" as="category" iteration="cat">{category.uid},</f:for></f:then>
 </f:if>0]'
 ```
-
-

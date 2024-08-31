@@ -1,253 +1,153 @@
 <!doctype html>
-<html>
-  <head>
+<html x-cloak x-data="darkMode" :class="[
+        htmlclass, 
+            (
+                localStorage.theme === 'dark' 
+                || (!('theme' in localStorage) 
+                && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) ? 'dark' : 'light'
+        ]" lang="en">
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="http://localhost:4000" />
-    <title>Pengmaradi.GitHub.io</title>
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.css">
-    <link rel="stylesheet" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <base href="/" />
+    <title>TYPO3 tca displayCond</title>
+    <meta name="generator" content="jekyll serve github" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="requestUpdate and displayCond" />
 
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="apple-touch-icon" sizes="192x192" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="30x30" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="logo.png" />
+    <link rel="icon" href="favicon.ico" type="image/x-ico; charset=binary" />
 
-  </head>
-  <body>
-    <div id="wrapper">
-	  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="https://github.com/pengmaradi">pengmaradi</a>
-	</div>
-	<!-- /.navbar-header -->
+    <link rel="stylesheet" href="assets/main.css" />
+</head>
 
-	<ul class="nav navbar-top-links navbar-right">
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-user">
-				<li><a href="mailto:pengmaradi@gmail.com"><i class="fa fa-envelope fa-fw"></i> Contact me!</a>
-				</li>
-			</ul>
+<body>
+    <div class="continer">
+        <header>
+            
 
-		</li>
-		<!-- /.dropdown -->
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-tasks">
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 1</strong>
-								<span class="pull-right text-muted">40% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-									<span class="sr-only">40% Complete (success)</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 2</strong>
-								<span class="pull-right text-muted">20% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-									<span class="sr-only">20% Complete</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 3</strong>
-								<span class="pull-right text-muted">60% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-									<span class="sr-only">60% Complete (warning)</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<p>
-								<strong>Task 4</strong>
-								<span class="pull-right text-muted">80% Complete</span>
-							</p>
-							<div class="progress progress-striped active">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-									<span class="sr-only">80% Complete (danger)</span>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a class="text-center" href="#">
-						<strong>See All Tasks</strong>
-						<i class="fa fa-angle-right"></i>
-					</a>
-				</li>
-			</ul>
-			<!-- /.dropdown-tasks -->
-		</li>
-		<!-- /.dropdown -->
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-alerts">
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-comment fa-fw"></i> New Comment
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-twitter fa-fw"></i> 3 New Followers
-							<span class="pull-right text-muted small">12 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-envelope fa-fw"></i> Message Sent
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-tasks fa-fw"></i> New Task
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="#">
-						<div>
-							<i class="fa fa-upload fa-fw"></i> Server Rebooted
-							<span class="pull-right text-muted small">4 minutes ago</span>
-						</div>
-					</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a class="text-center" href="#">
-						<strong>See All Alerts</strong>
-						<i class="fa fa-angle-right"></i>
-					</a>
-				</li>
-			</ul>
-			<!-- /.dropdown-alerts -->
-		</li>
-		<!-- /.dropdown -->
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-user">
-				<li><a href="profile.html"><i class="fa fa-user fa-fw"></i> My Profile</a>
-				</li>
-				<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-				</li>
-				<li class="divider"></li>
-				<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-				</li>
-			</ul>
-			<!-- /.dropdown-user -->
-		</li>
-		<!-- /.dropdown -->
-	</ul>
-	<!-- /.navbar-top-links -->
+<nav class="bg-gray-800" x-data="{
+    showMenu: false,
+    sendMail() {
+        let link = `mailto:pengmaradi@gmail.com
+        ?subject=mail from pengmaradi.github.io
+        `
+        window.location.href = link;
+        return false;
+    }
+}">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <!-- Mobile menu button-->
+                <button type="button"
+                    @click="showMenu = !showMenu;"
+                    class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="absolute -inset-0.5"></span>
+                    <span class="sr-only">Open main menu</span>
 
-	<div class="navbar-default sidebar" role="navigation">
-		<div class="sidebar-nav navbar-collapse">
-			<ul class="nav" id="side-menu">
-				<li class="sidebar-search">
-					<div class="input-group custom-search-form">
-						<input type="text" class="form-control" placeholder="Search...">
-						<span class="input-group-btn">
-						<button class="btn btn-default" type="button">
-							<i class="fa fa-search"></i>
-						</button>
-					</span>
-					</div>
-					<!-- /input-group -->
-				</li>
-				<li>
-					<a href="/"><i class="fa fa-dashboard fa-fw"></i> Home</a>
-				</li>
-				<li>
-					<a href="news.html"><i class="fa fa-bar-chart-o fa-fw"></i> News</a>
-				</li>
-				<li>
-					<a href="example.html"><i class="fa fa-bar-chart-o fa-fw"></i> Carousel</a>
-				</li>
-			</ul>
-		</div>
-		<!-- /.sidebar-collapse -->
-	</div>
-	<!-- /.navbar-static-side -->
+                    <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+
+                    <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex flex-shrink-0 items-center">
+                    <a href="/">
+                        <img class="h-8 w-auto" src="logo.png" alt="pengmaradi art" />
+                    </a>
+                </div>
+                <div class="hidden sm:ml-6 sm:block">
+                    <div class="flex space-x-4">
+                        
+                        <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-white">
+                            Home
+                        </a>
+                        
+                        <a href="/news.html" class="rounded-md px-3 py-2 text-sm font-medium text-white">
+                            Blog
+                        </a>
+                        
+                        <a href="/profile.html" class="rounded-md px-3 py-2 text-sm font-medium text-white">
+                            About
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div class="relative ml-3">
+                    <div>
+                        <button type="button"
+                            @click="sendMail();"
+                            class="cursor-pointer relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">contact</span>
+                            <img class="h-8 w-8 rounded-full"
+                                src="https://avatars.githubusercontent.com/u/1831210?v=4"
+                                alt="pengmaradi">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sm:hidden" id="mobile-menu" x-show="showMenu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+            
+            <a href="/" class="block rounded-md px-3 py-2 text-base font-medium text-white" >
+                Home
+            </a>
+            
+            <a href="/news.html" class="block rounded-md px-3 py-2 text-base font-medium text-white" >
+                Blog
+            </a>
+            
+            <a href="/profile.html" class="block rounded-md px-3 py-2 text-base font-medium text-white" >
+                About
+            </a>
+            
+        </div>
+    </div>
 </nav>
 
-	<div id="page-wrapper">
-		<h2>Beschreibung</h2>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<button class="test absolute right-0 top-12" @click="toggleDarkmode()">Toggle Dark Mode</button>
+
+        </header>
+        <main class="mt-10 p-2 min-h-screen">
+            <h2 id="beschreibung">Beschreibung</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
 <span class="k">return</span> <span class="p">[</span>
     <span class="s1">'ctrl'</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="s1">'title'</span> <span class="o">=&gt;</span> <span class="s1">'your title'</span><span class="p">,</span>
 
-        <span class="c1">// code ...  
-</span>
-        <span class="c1">// js "type" changed Refresh required
-</span>        <span class="c1">// This change will affect which fields are available in the form. 
-</span>        <span class="c1">// Would you like to save now in order to refresh the display?
-</span>        <span class="s1">'requestUpdate'</span> <span class="o">=&gt;</span> <span class="s1">'type'</span><span class="p">,</span>
-        <span class="c1">// code ...
-</span>    <span class="p">],</span>
+        <span class="c1">// code ...</span>
+
+        <span class="c1">// js "type" changed Refresh required</span>
+        <span class="c1">// This change will affect which fields are available in the form.</span>
+        <span class="c1">// Would you like to save now in order to refresh the display?</span>
+        <span class="s1">'requestUpdate'</span> <span class="o">=&gt;</span> <span class="s1">'type'</span><span class="p">,</span>
+        <span class="c1">// code ...</span>
+    <span class="p">],</span>
     <span class="s1">'interface'</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="s1">'showRecordFieldList'</span> <span class="o">=&gt;</span> <span class="s1">'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, title, description, img, source'</span><span class="p">,</span>
     <span class="p">],</span>
@@ -278,8 +178,8 @@
         <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="p">[</span>
             <span class="s1">'exclude'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
             <span class="s1">'label'</span> <span class="o">=&gt;</span> <span class="s1">'LLL:EXT:anything_slider/Resources/Private/Language/locallang_db.xlf:tx_anythingslider_domain_model_slider.description'</span><span class="p">,</span>
-            <span class="c1">//'displayCond' =&gt; 'FIELD:type:=:1',
-</span>            <span class="s1">'displayCond'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="c1">//'displayCond' =&gt; 'FIELD:type:=:1',</span>
+            <span class="s1">'displayCond'</span> <span class="o">=&gt;</span> <span class="p">[</span>
                 <span class="s1">'OR'</span> <span class="o">=&gt;</span> <span class="p">[</span>
                     <span class="s1">'FIELD:type:=:1'</span><span class="p">,</span>
                     <span class="s1">'FIELD:type:=:3'</span><span class="p">,</span>
@@ -303,7 +203,7 @@
                     <span class="s1">'FIELD:type:=:1'</span><span class="p">,</span>
                 <span class="p">],</span>
             <span class="p">],</span>
-            <span class="s1">'config'</span> <span class="o">=&gt;</span> <span class="nx">\TYPO3\CMS\Core\Utility\ExtensionManagementUtility</span><span class="o">::</span><span class="na">getFileFieldTCAConfig</span><span class="p">(</span>
+            <span class="s1">'config'</span> <span class="o">=&gt;</span> <span class="nc">\TYPO3\CMS\Core\Utility\ExtensionManagementUtility</span><span class="o">::</span><span class="nf">getFileFieldTCAConfig</span><span class="p">(</span>
                 <span class="s1">'img'</span><span class="p">,</span>
                 <span class="p">[</span>
                     <span class="s1">'appearance'</span> <span class="o">=&gt;</span> <span class="p">[</span>
@@ -315,27 +215,27 @@
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_TEXT</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_TEXT</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_IMAGE</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_IMAGE</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_AUDIO</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_AUDIO</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_VIDEO</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_VIDEO</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_APPLICATION</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_APPLICATION</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
@@ -343,9 +243,9 @@
                     <span class="p">],</span>
                     <span class="s1">'maxitems'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
                 <span class="p">],</span>
-                <span class="c1">// gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg
-</span>                <span class="c1">//$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-</span>                <span class="s1">'jpg,jpeg,png'</span>  
+                <span class="c1">// gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg</span>
+                <span class="c1">//$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']</span>
+                <span class="s1">'jpg,jpeg,png'</span>
             <span class="p">),</span>
         <span class="p">],</span>
         <span class="s1">'source'</span> <span class="o">=&gt;</span> <span class="p">[</span>
@@ -357,7 +257,7 @@
                     <span class="s1">'FIELD:type:=:3'</span><span class="p">,</span>
                 <span class="p">],</span>
             <span class="p">],</span>
-            <span class="s1">'config'</span> <span class="o">=&gt;</span> <span class="nx">\TYPO3\CMS\Core\Utility\ExtensionManagementUtility</span><span class="o">::</span><span class="na">getFileFieldTCAConfig</span><span class="p">(</span>
+            <span class="s1">'config'</span> <span class="o">=&gt;</span> <span class="nc">\TYPO3\CMS\Core\Utility\ExtensionManagementUtility</span><span class="o">::</span><span class="nf">getFileFieldTCAConfig</span><span class="p">(</span>
                 <span class="s1">'source'</span><span class="p">,</span>
                 <span class="p">[</span>
                     <span class="s1">'appearance'</span> <span class="o">=&gt;</span> <span class="p">[</span>
@@ -369,27 +269,27 @@
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_TEXT</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_TEXT</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_IMAGE</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_IMAGE</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_AUDIO</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_AUDIO</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_VIDEO</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_VIDEO</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
                         <span class="p">],</span>
-                        <span class="nx">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="na">FILETYPE_APPLICATION</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="nc">\TYPO3\CMS\Core\Resource\File</span><span class="o">::</span><span class="no">FILETYPE_APPLICATION</span> <span class="o">=&gt;</span> <span class="p">[</span>
                             <span class="s1">'showitem'</span> <span class="o">=&gt;</span> <span class="s1">'
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'</span>
@@ -403,23 +303,22 @@
     <span class="p">],</span>
 <span class="p">];</span>
 
-</code></pre></div>
-	 </div>
-    </div>
-    <footer class="footer bs-docs-footer">
-    <div class="container-fluid">
-        layout is default <br/>
-    	date: 18 November 2017
-    </div>
-</footer>
+</code></pre></div></div>
 
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/raphael/raphael.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/morrisjs/morris.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/data/morris-data.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
-    <script src="javascripts/respond.js"></script>
-  </body>
+        </main>
+        <footer class="relative bg-gray-900 text-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-24">
+            
+<div class="container">
+    <i>Layout ist tailwind</i>
+    <p>31 August 2024</p>
+    <p>© pengmaradi 2024</p>
+</div>
+
+
+        </footer>
+    </div>
+
+    <script type="module" src="assets/main.js"></script>
+</body>
+
 </html>

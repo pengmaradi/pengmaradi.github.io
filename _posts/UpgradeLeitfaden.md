@@ -1,7 +1,7 @@
 ---
-layout: default
-title:  "TYPO3 update"
-date:   2024-02-14 08:50:01 -0100
+layout: tailwind
+title: "TYPO3 update"
+date: 2024-02-14 08:50:01 -0100
 categories: typo3
 class: panel-green
 description: TYPO3 update
@@ -56,6 +56,7 @@ where tx_gridelements_container in
 ```
 
 ### powermail sql
+
 ```
 ## run first of ./vendor/bin/typo3cms database:updateSchema -v
 mysql -udev -pdev -hmysql typo3 -e "RENAME TABLE tx_powermail_domain_model_answers TO tx_powermail_domain_model_answer;"
@@ -71,7 +72,9 @@ mysql -udev -pdev -hmysql typo3 -e "ALTER TABLE tx_powermail_domain_model_field 
 ```
 
 ## v7 to v11
+
 maybe you need some extensions
+
 ```
 "require-dev": {
     "ichhabrecht/core-upgrader": "dev-master",
@@ -92,7 +95,7 @@ $(date +%F)
 EOF
 
 ./vendor/bin/typo3cms database:updateSchema -v
- 
+
 ./vendor/bin/typo3cms cleanup:updatereferenceindex --show-progress
 ./vendor/bin/typo3cms upgrade:wizard fillTranslationSourceField -v
 ./vendor/bin/typo3cms upgrade:wizard pagesSlugs -v
@@ -108,14 +111,16 @@ EOF
 ./vendor/bin/typo3cms upgrade:wizard separateSysHistoryFromLog -v
 ./vendor/bin/typo3cms upgrade:wizard backendUsersConfiguration -v
 ./vendor/bin/typo3cms upgrade:wizard databaseRowsUpdateWizard -v
- 
+
 if [ -d "web/typo3conf/ext/news" ]
 then
   ./vendor/bin/typo3cms upgrade:wizard newsSlug -v
   ./vendor/bin/typo3cms upgrade:wizard sysCategorySlugs -v
 fi
 ```
+
 ### v12
+
 ```
 #!/bin/bash
 
@@ -133,4 +138,3 @@ echo "update db schema (table.add + field.add)"
 ./vendor/bin/typo3 upgrade:run -vvv
 
 ```
-

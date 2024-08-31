@@ -1,0 +1,34 @@
+body {
+  @apply dark:text-white dark:bg-black;
+}
+
+.test {
+  @apply p-2 my-4 border rounded-lg text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-green-500;
+}
+
+.panel-green {
+    @apply border rounded border-green-400 p-2;
+    .panel-heading {
+        @apply bg-green-400;
+    }
+}
+
+.panel-red {
+    @apply border rounded border-red-400 p-2;
+    .panel-heading {
+        @apply bg-red-400;
+    }
+}
+
+.panel-info {
+    @apply border rounded border-blue-400 p-2;
+    .panel-heading {
+        @apply bg-blue-400;
+    }
+}
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tailwind
 title:  "typoscript include ts"
 date:   2017-02-19 11:20:01 -0100
 categories: typo3

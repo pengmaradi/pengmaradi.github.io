@@ -1,0 +1,10 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4" x-data="glightbox">
+    {% for item in site.data.ceramic %}
+    <a class="glightbox cursor-zoom-in" 
+        href="{{ item.src }}">
+        <h3>{{ item.name }}</h3>
+        <img src="{{ item.src }}" class="h-auto w-full" width="400" height="500" alt="{{ item.name }}"
+            title="{{ item.description }}" />
+    </a>
+    {% endfor %}
+</div>
