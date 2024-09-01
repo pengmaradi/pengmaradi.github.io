@@ -29,7 +29,16 @@
     <link rel="stylesheet" href="assets/main.css" />
 </head>
 
-<body x-data="{show_backToTop: false}" @scroll.window="show_backToTop = window.pageYOffset > 30">
+<body x-data="{show_backToTop: false,
+    sendMail() {
+        let link = `mailto:pengmaradi@gmail.com
+        ?subject=mail from pengmaradi.github.io
+        `
+        window.location.href = link;
+        return false;
+    },
+    showMenu: false,
+}" @scroll.window="show_backToTop = window.pageYOffset > 30">
     <div :class="show_backToTop ? 'block' : 'hidden'">
         <div id="back_To_Top" x-ref="backTotop" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
             class="scrollTop fixed overflow-hidden bottom-5 right-0 z-10 cursor-pointer">
