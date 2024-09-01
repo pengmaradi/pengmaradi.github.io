@@ -1,34 +1,41 @@
 ---
 layout: tailwind
+title: blog | pengmaradi
+key: TYPO3, CMS, wenentwickln
+description: test of blog
 ---
 
 {% for post in site.posts %}
-	{% capture post_count %} {{ post_count | plus: 1 }} {% endcapture %}
+{% capture post_count %} {{ post_count | plus: 1 }} {% endcapture %}
 {% endfor %}
 
-
-<div class="col-md-12">
-    <h1 class="page-header">TYPO3 Blog</h1>
-    <h3 class="post-subtitle">total: {{ post_count }}</h3>
-    <p class="post-meta">&nbsp;</p>
-</div>
-
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-{% for post in site.posts %}
-    <div class="post-item rounded-lg shadow-lg p-4">
-        <div class="panel {{post.class}} relative">
-            <div class="panel-heading">
-                {{post.title}}
-            </div>
-            <div class="panel-body">
-                <p>{{post.date}}</p>
-                <p>{{post.description}}</p>
-            </div>
-            <div class="panel-footer">
-                {{post.categories}}
-            </div>
-            <a class="absolute inset-0 text-transparent " href="{{post.url}}">More</a>
-        </div>
+<section clsss="duration-1000 transition-all transform" x-intersect="$el.classList.add('fadeInUp')">
+    <div class="col-md-12">
+        <h1 class="page-header">TYPO3 Blog</h1>
+        <h3 class="post-subtitle">total: {{ post_count }}</h3>
+        <p class="post-meta">&nbsp;</p>
     </div>
-{% endfor %}
-</div>
+</section>
+
+<section clsss="duration-1000 transition-all transform" x-intersect="$el.classList.add('fadeInUp')">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {% for post in site.posts %}
+        <div class="post-item rounded-lg shadow-lg p-4 marker:duration-1000 transition-all transform"
+            x-intersect="$el.classList.add('fadeInUp')">
+            <div class="panel {{post.class}} relative">
+                <div class="panel-heading">
+                    {{post.title}}
+                </div>
+                <div class="panel-body">
+                    <p>{{post.date}}</p>
+                    <p>{{post.description}}</p>
+                </div>
+                <div class="panel-footer">
+                    {{post.categories}}
+                </div>
+                <a class="absolute inset-0 text-transparent " href="{{post.url}}">More</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
