@@ -10,6 +10,25 @@ export default {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
+    screens: {
+      'xs': '320px',
+      'ty': '480px',
+      'sm': '768px',
+      'md': '992px',
+      'lg': '1200px',
+      'xl': '1400px',
+    },
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: {
+        'ty': '480px',
+        'sm': '768px',
+        'md': '860px',
+        'lg': '1140px',
+        'xl': '1300px',
+      },
+    },
     extend: {},
   },
   plugins: [

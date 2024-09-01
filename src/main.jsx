@@ -1,6 +1,7 @@
 import './index.pcss'
 
 import Alpine from 'alpinejs'
+import intersect from '@alpinejs/intersect'
 import './js/dark'
 import './js/Glightbox'
 import './js/videoModal'
@@ -12,6 +13,7 @@ import './js/videoModal'
 
 document.addEventListener("DOMContentLoaded", () => {
     window.Alpine = Alpine;
+    Alpine.plugin(intersect)
     Alpine.start();
 })
 

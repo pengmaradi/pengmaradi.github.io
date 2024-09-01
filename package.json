@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@alpinejs/intersect": "3.14.1",
     "alpinejs": "3.14.1",
     "flowbite": "2.5.1",
     "glightbox": "3.3.0",

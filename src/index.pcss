@@ -1,23 +1,61 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s;
+}
+
+@keyframes scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale {
+  animation: scale 1s;
+}
+
 body {
-  @apply dark:text-white dark:bg-black;
+  @apply text-gray-800 dark:text-gray-200 dark:text-white dark:bg-black;
 
   h1,
   h2,
   h3,
   h4 {
-    @apply font-bold;
+    @apply font-bold text-gray-600 dark:text-gray-300;
   }
 
   h1 {
-    @apply text-4xl;
+    @apply text-4xl mt-4;
   }
 
   h2 {
     @apply text-3xl;
   }
-  
+
   h3 {
     @apply text-2xl;
+  }
+
+  p {
+    @apply pt-2;
+  }
+
+  section {
+    @apply mt-2 mb-9;
   }
 }
 
