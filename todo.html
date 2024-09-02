@@ -6,7 +6,7 @@ description: just test the js
 ---
 
 <div class="my-5 w-full" x-data="todolist">
-    <div class="top flex flex-col border rounded-sm p-5 w-1/2">
+    <div class="top flex flex-col border rounded-sm p-5">
         <input type="hidden" name="id" x-model="id" />
         <input type="text" name="todo" x-model="title" class="border p-2 mb-2 dark:text-black"
             placeholder="todo title" />
@@ -23,7 +23,7 @@ description: just test the js
                         <h3 class="text-lg mb-0" x-text="todo.title"></h3>
                         <div x-text="todo.text">todo.text.slice(0, 800)</div>
                     </div>
-                    <div class="w-1/5 flex justify-between">
+                    <div class="w-full lg:w-1/5 flex justify-between">
                         <button x-show="!todo.done" class="border rounded p-2"
                             @click="toggleDone(todo.id)">done</button>
                         <button x-show="todo.done" class="border rounded p-2"
