@@ -1,3 +1,35 @@
-- name: Engel
-  src: https://lh3.googleusercontent.com/pw/AP1GczNQTERnQxzgxsS4yEEXeovc7dmYin8GXTUzAlLHr9kKY6z2A6K1nQpIm0oA8tG5I_MMb4klXB0pthF6757LfLw1c4BmQiI3r41qxCa4G8jrTr6MbaXh=w2400
-  description: 
+
+- name: Don Quijote
+  src: https://lh3.googleusercontent.com/pw/AP1GczNjsnL2adl4SjcXJTqfOeyAW1ns9CN8mT_dAABAWIf-NiLtbDbxdGEmg4cJ5jaWPGG0YrGoX_TkBuekR0Q08FcAUTV1vLH0XwZIZM3QrKh0rsJL9qPe=w2400
+  description: Don Quijote from Pappmaché
+  lightbox: true
+
+- name: girl
+  src: https://lh3.googleusercontent.com/pw/AP1GczPgzDNN0mkPtolxAbCutE2HuhhDiLgcO3lY6goKSUbQT6v78HlcsBjxbbatjWXUsze6ndT8nu5Z_hl7MlBUjKysucuMF-y2rAF-nTjCnEK5_vzTSPqX=w2400
+  description: the girl go to school
+  lightbox: true
+
+- name: what can I say
+  src: https://lh3.googleusercontent.com/pw/AP1GczPXf9XLEzZbEeui9nVwBmCtOgGnLQ5r1L02rYgOf-MN2rTh04L3vS0Z9WdByn5LR1rwzWKxz7eXcPGl60q2KgCot1KjmtNmTEuTR3VKGcZu81Ec8hj-=w2400
+  description: angel does not know what to say
+  lightbox: true
+
+- name: kapaskie
+  src: https://lh3.googleusercontent.com/pw/AP1GczOeNKiwForAiiExydg5pVf8_Sp9apGxh0vQ1c4KFziYEibrSy-_lB5l3HmyUsGUQccrnaX5CPb-IZoWLaz87FiwzjocK6zM96p0CkqRPC7FbrqJt5J1=w2400
+  description: the name is kapaskie
+  lightbox: true
+
+- name: oh my got
+  src: https://lh3.googleusercontent.com/pw/AP1GczPBOiRxtnz8iic2kScOuELT2gAFDw6kZZxE7VSKDHMOwvSOeiDfALl1Q8ZJPE3bp2p_CA89xZpSy_vCEV2rDqf4bDi3NXksdIMBocf1G17DHQ9ezvz4=w2400
+  description: he does not what happen
+  lightbox: true
+
+- name: Angel with one wing
+  src: https://lh3.googleusercontent.com/pw/AP1GczOnjobA_BF1qWUTkM7l-ahoji66UbraedIta8umJ3_LImVDo0-l9jveyCzvrWqfJ5JN38OdehLw3nuM9ZStt6k68Uf5xJ6Z7AOxB_p80mjpXvIC6ffE=w2400
+  description: the angel has only one wing
+  lightbox: true
+
+# - name: the name
+#   src: link
+#   description: text
+#   lightbox: true
