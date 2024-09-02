@@ -1,0 +1,38 @@
+---
+layout: tailwind
+title: todo | pengmaradi
+key: alpinejs, todo
+description: just test the js
+---
+
+<div class="my-5 w-full" x-data="todolist">
+    <div class="top flex flex-col border rounded-sm p-5 w-1/2">
+        <input type="hidden" name="id" x-model="id" />
+        <input type="text" name="todo" x-model="title" class="border p-2 mb-2 dark:text-black"
+            placeholder="todo title" />
+        <textarea x-model="text" placeholder="todo description" class="border p-2 mb-2 dark:text-black"></textarea>
+        <button class="border rounded p-2 w-auto" @click="addTodo" x-text="submit"></button>
+    </div>
+
+    <div class="mt-5 body">
+        <ul class="w-full">
+            <template x-for="(todo, index) in list" :key="index">
+                <li :id="todo.id" class="flex justify-between mb-2 p-2 bg-slate-50 dark:bg-slate-600 rounded">
+                    <div class="flex flex-row w-4/5 justify-between items-center pr-5"
+                        :class="todo.done && 'line-through'">
+                        <h3 class="text-lg mb-0" x-text="todo.title"></h3>
+                        <div x-text="todo.text">todo.text.slice(0, 800)</div>
+                    </div>
+                    <div class="w-1/5 flex justify-between">
+                        <button x-show="!todo.done" class="border rounded p-2"
+                            @click="toggleDone(todo.id)">done</button>
+                        <button x-show="todo.done" class="border rounded p-2"
+                            @click="toggleDone(todo.id)">undone</button>
+                        <button x-show="!todo.done" class="border rounded p-2" @click="editTodo(todo)">edit</button>
+                        <button x-show="todo.done" class="border rounded p-2" @click="removeTodo(todo)">delete</button>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </div>
+</div>
