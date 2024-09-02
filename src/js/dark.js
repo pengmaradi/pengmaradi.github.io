@@ -1,9 +1,7 @@
 import Alpine from "alpinejs";
 
 // id darkMode ==> in html x-data="darkMode"
-Alpine.data(
-  "darkMode",
-  () => ({
+Alpine.data("darkMode", () => ({
     isdark: false,
     htmlclass: "",
 
