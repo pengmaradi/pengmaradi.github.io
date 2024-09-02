@@ -5,6 +5,7 @@ import intersect from '@alpinejs/intersect'
 import './js/dark'
 import './js/Glightbox'
 import './js/videoModal'
+import './js/todolist'
 
 
 // import { StrictMode } from 'react'
