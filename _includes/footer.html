@@ -65,10 +65,13 @@
         <h5 class="uppercase mb-5 tracking-wider font-semibold">
             links
         </h5>
-        <ul>
-            <li><a href="/todo.html">Todo list</a></li>
-            <li><a href="/news.html">TYPO3 blog</a></li>
-            <li><a href="/impressum.html">Impressum</a></li>
-        </ul>
+        {% for item in site.data.metanav %}
+        <a href="{{ item.link }}" {% if page.url==item.link
+            %}class="active block bg-gray-900 py-2 text-base font-medium text-white pl-4" {% else
+            %}class="duration-1000 transition-all transform block py-2 text-base font-medium text-white hover:pl-4 " {%
+            endif %}>
+            {{ item.name }}
+        </a>
+        {% endfor %}
     </div>
 </div>
