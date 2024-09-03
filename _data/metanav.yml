@@ -1,0 +1,14 @@
+- name: Home
+  link: /
+
+- name: Impressum
+  link: /impressum.html
+
+- name: test blog
+  link: /news.html
+
+- name: todo list
+  link: /todo.html
+
+- name: test react
+  link: /getFilms.html
