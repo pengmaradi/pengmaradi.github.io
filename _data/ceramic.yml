@@ -1,3 +1,13 @@
+- name: Kopf
+  src: https://lh3.googleusercontent.com/pw/AP1GczNB6tWcZ2W1--1HwjYNrkXDAzdHYda_PbpaB2POxOVN6U_BoyRsiS4COiKZJJ8MsyV8rVsLHaiaYldSp0CzkBELXBpPByAlmE6FAHMvhYByERWHhIgg=w2400
+  description: Kopf im Buch
+  lightbox: false
+
+- name: Geisterkopf
+  src: https://lh3.googleusercontent.com/pw/AP1GczOQ6CQ3maTbx9i3lbHHgwcws0r8CUy0IWy_NDs8CnL93XiNc0HO6zeO8UsSY2hiTFsleCO5hXym52IFxW4wqJqZot_iiO008zNId_tH6EmIlZ5hQbl4=w2400
+  description: Geist ...
+  lightbox: false
+
 - name: Krebs
   src: https://lh3.googleusercontent.com/pw/AP1GczOL30ZKcawQUaZLHT75uDPd3PvgrY3ho-R-jizrDvTVvcQsdnUeI9T4pLKx8U54bgUNoLxMvnwv8jp0Rvy59-QcBhdHG58I3Q6FuBENt1VMy_dRecAi=w2400
   description: Porzellan Auf Glasur, über 1200°C
@@ -6,16 +16,16 @@
 - name: grüne Vase
   src: https://lh3.googleusercontent.com/pw/AP1GczPsVJCXh1sdQB0DT6LSnF1oBkUmUxPLLEAbVeWt64SwC2RJZO9SMbMXM18v1Lf9d8I5-4e2HkranFl5udk9YbK3HfVvOj1noFeVzgpa9moYuvwn1DT4=w2400
   description: Porzellen Vase, Gipsform mit Celaton Glasur
-  lightbox: true
+  lightbox: false
 
 - name: weisse Vase
   src: https://lh3.googleusercontent.com/pw/AP1GczNZn6ofx1m70z1LUOYoMmm2F_2zHXkABznkEEKk-5blU3Ie8DrkdmCgI0-l6UtdziHoxvc_sHwVXOk4_FiENu4bed8ttPXI3HGOeo0DCYHtTUfOj6x7=w2400
   description: ohne Gasur, Gipsform mit scharz und weiss Wände
-  lightbox: true
+  lightbox: false
 
 - name: Spinnenlilien
   src: https://lh3.googleusercontent.com/pw/AP1GczPFpGA7pO_kgO6rduW1Y0-DLu7Oq1-0Auk_rT0c6jOBxP1nUZCi6jjEqTmVS8oaAn7csGbiOr7p8voc0tSJPDpejsBgbgoT1Sj5YEN3UXTFRt8a2JDg=w2400
-  description: rot Blumen
+  description: Spinnenlilien
   lightbox: false
 
 - name: Kücken
@@ -38,12 +48,3 @@
   description: lan hua
   lightbox: false
 
-- name: Kopf
-  src: https://lh3.googleusercontent.com/pw/AP1GczNB6tWcZ2W1--1HwjYNrkXDAzdHYda_PbpaB2POxOVN6U_BoyRsiS4COiKZJJ8MsyV8rVsLHaiaYldSp0CzkBELXBpPByAlmE6FAHMvhYByERWHhIgg=w2400
-  description: Kopf im Buch
-  lightbox: true
-
-- name: Geisterkopf
-  src: https://lh3.googleusercontent.com/pw/AP1GczOQ6CQ3maTbx9i3lbHHgwcws0r8CUy0IWy_NDs8CnL93XiNc0HO6zeO8UsSY2hiTFsleCO5hXym52IFxW4wqJqZot_iiO008zNId_tH6EmIlZ5hQbl4=w2400
-  description: Geist ...
-  lightbox: true
