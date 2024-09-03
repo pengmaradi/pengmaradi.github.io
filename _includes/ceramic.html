@@ -5,9 +5,9 @@
         {% if item.lightbox %}<a class="glightbox cursor-zoom-in group duration-1000 transition-all transform"
             x-intersect="$el.classList.add('fadeInUp')" href="{{ item.src }}">
             {% else %}
-            <div class="group duration-1000 transition-all transform" x-intersect="$el.classList.add('fadeInUp')">{%
+            <div class="group duration-1000 transition-all transform border rounded p-2" x-intersect="$el.classList.add('fadeInUp')">{%
                 endif %}
-                <h3 class="mb-2 group-hover:text-gray-200">{{ item.name }}</h3>
+                <h5 class="mb-2 text-center group-hover:text-gray-200">{{ item.name }}</h5>
                 <img src="{{ item.src }}" class="h-auto w-full group-hover:sepia rounded" width="400" height="500"
                     alt="{{ item.name }}" title="{{ item.description }}" />
                 {% if item.lightbox %}

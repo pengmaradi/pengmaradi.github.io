@@ -8,9 +8,9 @@ import './js/videoModal'
 import './js/todolist'
 
 
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import App from './App.jsx'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import GetFilm from './js/GetFilm'
 
 document.addEventListener("DOMContentLoaded", () => {
     window.Alpine = Alpine;
@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-// createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
-// )
+createRoot(document.getElementById('film')).render(
+  <StrictMode>
+    <GetFilm />
+  </StrictMode>,
+)

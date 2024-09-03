@@ -29,16 +29,25 @@
 }
 
 body {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
   @apply text-gray-800 dark:text-gray-200 dark:text-white dark:bg-black;
 
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5 {
     @apply font-bold text-gray-600 dark:text-gray-300;
   }
 
   h1 {
+    font-family: "Anton", sans-serif;
+    font-weight: 100;
+    font-style: normal;
     @apply text-4xl mt-4;
   }
 
@@ -82,6 +91,10 @@ body {
   .panel-heading {
     @apply bg-blue-400;
   }
+}
+
+.dark svg.fill-current {
+  fill: #ffffff; /* White for dark mode */
 }
 
 @tailwind base;
