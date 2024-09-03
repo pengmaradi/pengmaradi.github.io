@@ -48,15 +48,15 @@ body {
     font-family: "Anton", sans-serif;
     font-weight: 100;
     font-style: normal;
-    @apply text-4xl mt-4;
+    @apply text-3xl my-4;
   }
 
   h2 {
-    @apply text-3xl;
+    @apply text-2xl;
   }
 
   h3 {
-    @apply text-2xl;
+    @apply text-xl;
   }
 
   p {
@@ -66,6 +66,12 @@ body {
   section {
     @apply mt-2 mb-9;
   }
+
+  pre {
+    @apply w-full max-w-full p-2 mb-2 overflow-hidden overflow-x-auto;
+
+  }
+
 }
 
 .test {
@@ -73,28 +79,45 @@ body {
 }
 
 .panel-green {
-  @apply border rounded border-green-400 p-2;
+  @apply border rounded border-green-900 p-2;
   .panel-heading {
-    @apply bg-green-400;
+    @apply bg-green-900 -mx-2 -mt-2 p-2 text-center text-white;
   }
 }
 
 .panel-red {
-  @apply border rounded border-red-400 p-2;
+  @apply border rounded border-red-900 p-2;
   .panel-heading {
-    @apply bg-red-400;
+    @apply bg-red-900 -mx-2 -mt-2 p-2 text-center text-white;
   }
 }
 
 .panel-info {
-  @apply border rounded border-blue-400 p-2;
+  @apply border rounded border-blue-900 p-2;
   .panel-heading {
-    @apply bg-blue-400;
+    @apply bg-blue-900 -mx-2 -mt-2 p-2 text-center text-white;
   }
+}
+
+.panel-footer {
+    font-family: "Anton", sans-serif;
+    @apply mt-4;
 }
 
 .dark svg.fill-current {
   fill: #ffffff; /* White for dark mode */
+}
+
+svg {
+    &.gmail,
+    &.phone,
+    &.instagram,
+    &.youtube {
+        fill: #fff;
+        &:hover {
+            fill: #807e7e;
+        }
+    }
 }
 
 @tailwind base;
