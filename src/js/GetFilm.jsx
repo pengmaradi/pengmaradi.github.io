@@ -30,6 +30,7 @@ const GetFilm = () => {
 
     const getValue = (e) => {
          setCat(e.currentTarget.innerHTML)
+         window.scrollTo({top: 0, behavior: 'smooth'})
     };
 
     return (
