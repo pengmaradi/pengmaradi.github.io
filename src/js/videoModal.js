@@ -3,7 +3,7 @@ import { initModals } from "flowbite";
 import Plyr from "plyr";
 import "plyr/dist/plyr.css";
 
-Alpine.data("modal", () => ({
+Alpine.data("videoModal", () => ({
   player: null,
   mpdal: null,
   init() {
