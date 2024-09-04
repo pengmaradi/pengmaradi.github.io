@@ -69,9 +69,20 @@ body {
 
   pre {
     @apply w-full max-w-full p-2 mb-2 overflow-hidden overflow-x-auto;
-
   }
 
+  #film {
+    .cat-group {
+      @apply fixed z-10 top-10 ty:top-0 ty:relative my-5 flex flex-col ty:flex-row;
+
+      .btn {
+        @apply p-2 mb-2 mr-2 border rounded bg-gray-400 dark:bg-gray-500 hover:bg-gray-100 hover:text-gray-600;
+      }
+    }
+    img {
+      @apply w-full h-full sm:w-60 sm:h-auto mb-2 hover:sepia;
+    }
+  }
 }
 
 .test {
@@ -100,8 +111,8 @@ body {
 }
 
 .panel-footer {
-    font-family: "Anton", sans-serif;
-    @apply mt-4;
+  font-family: "Anton", sans-serif;
+  @apply mt-4;
 }
 
 .dark svg.fill-current {
@@ -109,15 +120,15 @@ body {
 }
 
 svg {
-    &.gmail,
-    &.phone,
-    &.instagram,
-    &.youtube {
-        fill: #fff;
-        &:hover {
-            fill: #807e7e;
-        }
+  &.gmail,
+  &.phone,
+  &.instagram,
+  &.youtube {
+    fill: #fff;
+    &:hover {
+      fill: #807e7e;
     }
+  }
 }
 
 @tailwind base;
