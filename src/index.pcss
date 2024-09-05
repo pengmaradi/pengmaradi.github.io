@@ -73,14 +73,14 @@ body {
 
   #film {
     .cat-group {
-      @apply fixed z-10 bottom-10 ty:bottom-0 grid sm:flex sm:bottom-1/2;
+      @apply sticky z-10 top-20 sm:top-0;
 
       .btn {
         @apply p-2 mb-2 mr-2 h-auto border rounded bg-gray-400 dark:bg-gray-500 hover:bg-gray-100 hover:text-gray-600;
       }
     }
     img {
-      @apply w-full h-full sm:w-60 sm:h-auto mb-2 hover:sepia;
+      @apply w-full h-auto mb-2 hover:sepia;
     }
   }
 }
