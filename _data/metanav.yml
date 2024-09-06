@@ -1,8 +1,8 @@
 - name: Home
   link: /
 
-- name: Impressum
-  link: /impressum.html
+# - name: Impressum
+#   link: /impressum.html
 
 - name: test blog
   link: /news.html

@@ -18,9 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     Alpine.start();
 })
 
+const film = document.getElementById('film')
 
-createRoot(document.getElementById('film')).render(
-  <StrictMode>
-    <GetFilm />
-  </StrictMode>,
-)
+if(film) {
+    createRoot(film).render(
+      <StrictMode>
+        <GetFilm />
+      </StrictMode>,
+    )
+} else {
+    console.log('no film element')
+}
