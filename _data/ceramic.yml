@@ -5,13 +5,13 @@
 
 - name: Geisterkopf
   src: https://lh3.googleusercontent.com/pw/AP1GczOQ6CQ3maTbx9i3lbHHgwcws0r8CUy0IWy_NDs8CnL93XiNc0HO6zeO8UsSY2hiTFsleCO5hXym52IFxW4wqJqZot_iiO008zNId_tH6EmIlZ5hQbl4=
-  description: Geist ...
+  description: "Geisterhafte Begegnungen: Diese ausdrucksstarken Keramikköpfe laden zu einer faszinierenden Reise in eine andere Welt ein. Ihre einzigartigen Gesichtszüge und die raue Oberfläche verleihen ihnen eine geheimnisvolle Aura."
   lightbox: true
 
 - name: Krebs
   src: https://lh3.googleusercontent.com/pw/AP1GczOL30ZKcawQUaZLHT75uDPd3PvgrY3ho-R-jizrDvTVvcQsdnUeI9T4pLKx8U54bgUNoLxMvnwv8jp0Rvy59-QcBhdHG58I3Q6FuBENt1VMy_dRecAi=
-  description: Porzellan Auf Glasur, über 1200°C
-  lightbox: false
+  description: "Diese zarte Porzellanplatte besticht durch ihre detailreiche Darstellung von Krabben, die mit Pickment auf Glasur gemalt wurden."
+  lightbox: true
 
 - name: grüne Vase
   src: https://lh3.googleusercontent.com/pw/AP1GczPsVJCXh1sdQB0DT6LSnF1oBkUmUxPLLEAbVeWt64SwC2RJZO9SMbMXM18v1Lf9d8I5-4e2HkranFl5udk9YbK3HfVvOj1noFeVzgpa9moYuvwn1DT4=
@@ -30,20 +30,20 @@
 
 - name: Kücken
   src: https://lh3.googleusercontent.com/pw/AP1GczPkPlUeG3ZENnZkHB9NlEYMtxcpRwKv0K79BBALm-QoqunheX2UnEsVw68f_g4mWq1dRKLPt7NXHujkav5dRS9ISHTV07J2bYXE5Sq9L3-XYBQIS_Ri=
-  description: xiao ji
+  description: Kücken
   lightbox: false
 
 - name: Fisch
   src: https://lh3.googleusercontent.com/pw/AP1GczP5A3NF1jQhvvyCBJaIdyJbeO4K9u0Da76lMLq70UbHU75ma64pixxJ-cBp4j70ClwEzb7bWvmlKyH_dCc6m7n8U2I0hTPkgT0I0w2ZYPuvQaKahTnR=
-  description: yu
+  description: Fisch
   lightbox: false
 
 - name: Krähen
   src: https://lh3.googleusercontent.com/pw/AP1GczP9r_OP9dnmUN8G8csiAULujYUMbhalM8PihemCWKgsVPP7-jjLh31bZSzXRn0X-cH82cePqzF3Wxr6yr0vrTwwl8Gp3YIk1be-FhyesGAiYrTU5Fqz=
-  description: wu ya
+  description: Krähen
   lightbox: false
 
 - name: Orchideen
   src: https://lh3.googleusercontent.com/pw/AP1GczNqm9x5iZvv1VC1KeaCm677EdMMxsTcIoRt3np4TDOeaRlw4_mW_khMAKNY61ljcgJR5sGVZ-Kix_tZz1LkdvL5hqiJEINij7a_YV9Svj8XRaqLzks9=
-  description: lan hua
+  description: Cambria Orchidee
   lightbox: false
