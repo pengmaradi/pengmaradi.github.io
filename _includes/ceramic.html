@@ -4,14 +4,20 @@
         {% for item in site.data.ceramic %}
         {% if item.lightbox %}
         <a class="glightbox cursor-zoom-in group duration-1000 transition-all transform border rounded p-2"
-            x-intersect="$el.classList.add('fadeInUp')" href="{{ item.src }}">
+            x-intersect="$el.classList.add('fadeInUp')" href="{{ item.src }}w800">
             {% else %}
-            <div class="group duration-1000 transition-all transform border rounded p-2"
+            <div class="group duration-1000 transition-all transform border rounded p-2 relative"
                 x-intersect="$el.classList.add('fadeInUp')">
                 {% endif %}
                 <h5 class="mb-2 text-center group-hover:text-gray-200">{{ item.name }}</h5>
-                <img src="{{ item.src }}" class="h-auto w-full group-hover:sepia rounded" width="400" height="500"
-                    alt="{{ item.name }}" title="{{ item.description }}" />
+                <div class="relative h-52 w-full">
+                    <img src="{{ item.src }}w500" class="hidden h-auto w-full group-hover:sepia rounded" width="400"
+                        height="500" alt="{{ item.name }}" title="{{ item.description }}" />
+                    <div class="absolute inset-0 w-full h-full"
+                        style="background: url({{ item.src }}w500);background-size: cover; background-position: center;">
+                    </div>
+                </div>
+
                 {% if item.lightbox %}
         </a>{% else %}
     </div>{% endif %}
