@@ -19,9 +19,14 @@
                     </div>
                 </div>
 
+                {% if !item.sold %}
+                <div class="sold">verkauft</div>
+                {% endif %}
+
                 {% if item.lightbox %}
         </a>{% else %}
     </div>{% endif %}
+    
     {% endfor %}
     </div>
 </section>
