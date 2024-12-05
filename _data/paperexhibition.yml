@@ -1,0 +1,120 @@
+- name: 'Nr.: 01'
+  src: https://lh3.googleusercontent.com/pw/AP1GczN5Yoguqo8IXWF_KzNAaFYzSfyxvlj28vjEFTmnyiDy2SChywsCImDpksvzIh1P1x5WP6mXz568kMlI1XV-Ze-OkzPIjoSLPYFUhcjXwD9drbZjl4vx=
+  description: Zhong Kui (钟馗) ist eine faszinierende Figur aus der chinesischen Mythologie und Folklore. Er wird als der „König der Geister“ oder „Geisterjäger“ verehrt, der böse Geister besiegt und die Menschheit beschützt.
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 02'
+  src: https://lh3.googleusercontent.com/pw/AP1GczNms4Rc0EYTyKG4_uMZ-mbkcdfTMP8Tcv8C8qmH1IfzFhTkCesaPY9t10OsZDcEztUnEZTIk1WBSpHaWfMm7a2sDLsYL2FqtwEXEPCCCs37T3qPHYHq=
+  description: Zhong Kui – der Geistjäger ist am Arbeiten.
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 03'
+  src: https://lh3.googleusercontent.com/pw/AP1GczMZAJvkOOlWsm9rZ6DFPPrO96_mftPS4q3rzydJcRXqc5PF_V58N9kjzWBuujWNsZctvDRZdno2GKECRcdZq2vRhfXRzOIYokPqh6CP9y8yZPJOZkcx=
+  description: der Geistjäger trinkt Wein – das passt perfekt zu Zhong Kui! 🍷
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 04'
+  src: https://lh3.googleusercontent.com/pw/AP1GczN8jDR2hapB0bitXHISCs_q418GShDnL0QlEBjBUTS7yrhFkLBpdFoiYuaz_w9JInoycTjEk_Ix2t9wepRlBfscTemk-wq4OGhbHGmw-sjEmmCSjxIv=
+  description: Jungfrau und die Sterne
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 05'
+  src: https://lh3.googleusercontent.com/pw/AP1GczO2TCxsSUrK9HeNkfQ7QkVoN-WwFI46HY-7umegxW64ubvMqP-z5LjY67ZU_aUKHOdenJ3y4cClY40bZ6d_W5GsMcZLewVzzeKpkzsypfcb48srDbh9=
+  description: Ein Bambusflötenspieler spielt ein traditionelles Blasinstrument auf Chinesisch oft als 笛子 Dizi bezeichnet, das in vielen asiatischen Kulturen eine bedeutende Rolle spielt, besonders in der chinesischen Musik. Die Bambusflöte ist für ihren klaren, melodischen Klang bekannt und wird in verschiedenen Musikstilen und Tradi­tionen verwendet.
+  lightbox: true
+  sold: true
+
+- name: 'Nr.: 06'
+  src: https://lh3.googleusercontent.com/pw/AP1GczO1oeHhyM9gjXR79A6l921KE_bb-0IAbqZmDL9JjnwlHQm99HuPL2o-409GiQrQ3clTi_daaw3MjlO_l5Xqfq_CQ5CQmB6Blzs27EAozoZMgvblXH3e=
+  description: 琵琶演奏 Pipa-Spielerin
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 07'
+  src: https://lh3.googleusercontent.com/pw/AP1GczMcYCmOPHu9XG59mkHlz_wNO1CZbtRWoBiL6TC6Dt6CRfBF-3f3ihoZ60TMpdPGW2vU8LnMl4kx3hY5kRGw30LE6X_xBzamH586hJB0Mfrgs8hkVCrN=
+  description: Erhu-Spieler
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 08'
+  src: https://lh3.googleusercontent.com/pw/AP1GczMrInEZuVHBaK69LlkEUmbrQIA2m-z987880Gs31Uy6KxQF5WJDo0E1-zUeBN7-7QjSXYrilOxP3bmkputHnN4sXvCi4b95t8yCoh2o9KQRyTnSH7Y_=
+  description: Sänger
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 09'
+  src: https://lh3.googleusercontent.com/pw/AP1GczPrm1tubaOo8gd5nvBtNLSMZdR27Cg8z1ds8rxJro3VqtJIhJGlMZQyvz8UTIytlIuHafDjdgt6IOrZOxfc55G1JgfwplCrDVVBS69yU9yIUuGeTfLn=
+  description: 三弦 (Sanxian) ist ein traditionelles chinesisches Saiteninstrument, das zu den ältesten und wichtigsten Instrumenten in der chinesischen Musiktradition gehört. Der Name Sanxian bedeutet wörtlich drei Saiten, was das auffälligste Merkmal dieses Instruments ist.
+  lightbox: true
+  sold: true
+
+- name: 'Nr.: 10'
+  src: https://lh3.googleusercontent.com/pw/AP1GczONNcSUEJZ1y89IWMOTONgR7x7PK3ZhIgAB3jiO1p7d_kxkkPJwIB7jdf12ghNFvgjy0pCLGmqO4KEB6fBFdG8b4hvklsZMq0XaPdXr9gDFHkzmAOAZ=
+  description: Das Xiao (箫) ist ein traditionelles chinesisches Blasinstrument aus Bambus, das zur Familie der Flöten gehört. Es ist bekannt für seinen sanften, melancholischen Klang und wird oft in klassischen chinesischen Musikstücken und Ensembles verwendet.
+  lightbox: true
+  sold: true
+
+- name: 'Nr.: 11'
+  src: https://lh3.googleusercontent.com/pw/AP1GczNRKBw3uQaCugBy8qBhE-U6w9F3aNAu2Nlx-oRLSKzzsA2o3wFwi2usBYUnXSKSCVoqKTj8yKnXaRKEj0oLRRbCAS0AtgP-D1z6d4jt6tTneNiRxZSB=
+  description: Daoshi - Der Daoismus (auch Taoismus genannt, 道教, Dàojiào) ist eine der bedeutendsten philosophischen und spirituellen Traditionen Chinas. Er basiert auf den Lehren des Dao (道, „der Weg“ oder „das Prinzip“), das als die grundlegende Ordnung des Universums verstanden wird. Im Mittelpunkt steht die Harmonie zwischen Mensch, Natur und Kosmos.
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 12'
+  src: https://lh3.googleusercontent.com/pw/AP1GczNjmFD3haglTaF-BMPu_B6Kkrf5DEP9DtGip6LrI-Fj_aec3JCXadYpTEcIvKk1YvJmunX2dO__JjbCv2K7xgVMIghqfX2DRQmsTWMx4yv4rxIhXyEl=
+  description: Steinträger
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 13'
+  src: https://lh3.googleusercontent.com/pw/AP1GczNxtndtUbXgBKm-ejABVkTI0sMdOQKcWglVcA68N23qs4nO6WzVWFA1IQlhIN7qpFFO8uam4X-vt_cn2fL8wt4rUA3NS7J63hj-Oefm7Z5qxJkY2lXx=
+  description: Steinträger
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 14'
+  src: https://lh3.googleusercontent.com/pw/AP1GczPBV-Mj2H3vmnF8k9HYl5axvDleU0gekTCeRwnqLbWDglMV_ReorvYYdpvdSxK9N1u88Uv3AHtQBUURUvC82va1k015bfN-voJv5vllFk3N7VEkbpXV=
+  description: Schweineträger – bringt Glück.
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 15'
+  src: https://lh3.googleusercontent.com/pw/AP1GczMr0E3uuF5NhHIuIkZQAUrYzdC374l3Eop_5k4oUVIHBswMlZYMOZrg1lNJuxhx0edoR50GbT5BfN8x4GBGtHx2o36mxztN2yLn7I39RgKdtbEUB5zk=
+  description: Der alte Mann ist auf einem Spaziergang.
+  lightbox: true
+  sold: true
+
+- name: 'Nr.: 16'
+  src: https://lh3.googleusercontent.com/pw/AP1GczPbJKvVyboWpP75wXlXkpKQf_hZ-yMhB5pogbDmOwCFnanWEu_rtph6uscBnksAPD1UmbB609lp9XKDmTULJ1jXOiKGbr0o0EcKT6f0hx9x3NtywwlH=
+  description: Liebe
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 17'
+  src: https://lh3.googleusercontent.com/pw/AP1GczP_f2vz7WZ64E3sdvMGigErdMEzmp820N-5EpLK-6RrAGfoRBGFkqhieN5glZC2zm9S_-9HDMHbL65qYG6RjssO8kB7Qruhc05a6bhr4HhcV-o1MO9h=
+  description: Magier
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 18'
+  src: https://lh3.googleusercontent.com/pw/AP1GczN0vZAlQaokNogAIOLXsmuahVwRMWqxOJvjgYobL1z2Vf7rqYLigMRUerUZ-2djRTZ2N0OVFyKHYC9ZYSxQ_c0wNuLUKHm0Hegph5FImVrYm4nXv3xm=
+  description: Ein Hausmann macht Ferien mit seinem Teddybär und geniesst die Zeit ohne Alltagssorgen, während sie gemeinsam entspannen, die Natur geniessen und viel Spass miteinander haben.
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 19'
+  src: https://lh3.googleusercontent.com/pw/AP1GczPiHk1RT-9AhOWCV0SKs3M-6AHotLYIy8SBRtTIcra9QgiHP9YVHsWk24PaDv6OHr9OnETheBGS6rYlIYnLYAhxtmtE4eK2sf7J-Tq2wQ8wuhUA7exM=
+  description: Teufel oder Dämon
+  lightbox: true
+  sold: false
+
+- name: 'Nr.: 20'
+  src: https://lh3.googleusercontent.com/pw/AP1GczPlIZURzpKOdVMaTGNc5K-_iT3lsy-v146CxpX9ktZi7GWY8VNI3PP5hZu6ApFVhYgBu6WNEumrGm6rPszJvdEJ-AkAfcSRx7Jvu3Ru7ImOP6Qd6yXa=
+  description: abstrakte Skulptur
+  lightbox: true
+  sold: false
+
