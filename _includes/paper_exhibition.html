@@ -1,0 +1,32 @@
+<section clsss="relative duration-1000 transition-all transform" x-intersect="$el.classList.add('fadeInUp')">
+    <div class="mb-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+        x-data="gLightbox">
+    {% for item in site.data.paperexhibition %}
+        {% if item.lightbox %}
+        <a class="glightbox cursor-zoom-in group duration-1000 transition-all transform border rounded p-2"
+            x-intersect="$el.classList.add('fadeInUp')" href="{{ item.src }}w800"
+            data-glightbox="title: {{item.name}}; description: {{ item.description }};">
+            {% else %}
+            <div class="group duration-1000 transition-all transform border rounded p-2 relative"
+                x-intersect="$el.classList.add('fadeInUp')">
+                {% endif %}
+                <h5 class="mb-2 text-center group-hover:text-gray-200">{{ item.name }}</h5>
+                <div class="relative h-52 w-full overflow-hidden">
+                    <img src="{{ item.src }}w500" class="hidden h-auto w-full group-hover:sepia rounded" width="400"
+                        height="500" alt="{{ item.name }}" title="{{ item.description }}" />
+                    <div class="absolute inset-0 w-full h-full transition duration-500 hover:scale-125"
+                        style="background: url({{ item.src }}w500);background-size: cover; background-position: 50% 30%;">
+                    </div>
+                </div>
+
+                {% if !item.sold %}
+                <div class="sold">verkauft</div>
+                {% endif %}
+
+                {% if item.lightbox %}
+        </a>{% else %}
+    </div>{% endif %}
+
+    {% endfor %}
+    </div>
+</section>
