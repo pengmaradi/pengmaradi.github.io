@@ -33,6 +33,13 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="assets/main.css" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P9C4MJB8');</script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body x-data="{show_backToTop: false,
@@ -45,6 +52,10 @@
     },
     showMenu: false,
 }" @scroll.window="show_backToTop = window.pageYOffset > 30">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P9C4MJB8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div :class="show_backToTop ? 'block' : 'hidden'">
         <div id="back_To_Top" x-ref="backTotop" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
             class="scrollTop fixed overflow-hidden bottom-5 right-2 z-10 cursor-pointer animate-bounce">
