@@ -21,8 +21,10 @@ Alpine.data("videoModal", () => ({
             "fullscreen",
           ],
           autoplay: false,
+          muted: true,
           hideControls: true,
           resetOnEnd: true,
+          playsinline: true,
           vimeo: {
             dnt: true,
             byline: false,
