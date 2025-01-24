@@ -8,10 +8,10 @@ description: just test the js
     <div class="my-5 w-full" x-data="todolist">
         <div class="top flex flex-col border rounded-sm p-5">
             <input type="hidden" name="id" x-model="id" />
-            <input type="text" name="todo" x-model="title" class="border p-2 mb-2 dark:text-black"
+            <input type="text" name="todo" x-model="title" class="border p-2 mb-2 dark:text-black dark:bg-white"
                 placeholder="todo title" />
-            <textarea x-model="text" placeholder="todo description" class="border p-2 mb-2 dark:text-black"></textarea>
-            <button class="border rounded p-2 md:w-1/2 lg:w-1/3 xl:w-1/3" @click="addTodo" x-text="submit"></button>
+            <textarea x-model="text" placeholder="todo description" class="border p-2 mb-2 dark:text-black dark:bg-white"></textarea>
+            <button title="submit" class="border rounded p-2 md:w-1/2 lg:w-1/3 xl:w-1/3" @click="addTodo" x-text="submit"></button>
         </div>
     
         <div class="mt-5 body">

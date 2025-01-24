@@ -1,3 +1,7 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -140,6 +144,4 @@ svg {
 }
 
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
