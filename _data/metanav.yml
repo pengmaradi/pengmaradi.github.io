@@ -10,5 +10,5 @@
 - name: todo list
   link: /todo.html
 
-- name: test react
-  link: /getFilms.html
+# - name: test react
+#   link: /getFilms.html
