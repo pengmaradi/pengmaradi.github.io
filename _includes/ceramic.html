@@ -3,11 +3,11 @@
         x-data="gLightbox">
         {% for item in site.data.ceramic %}
         {% if item.lightbox %}
-        <a class="glightbox cursor-zoom-in group duration-1000 transition-all transform border rounded p-2"
+        <a class="relative glightbox cursor-zoom-in group duration-1000 transition-all transform border rounded p-2"
             x-intersect="$el.classList.add('fadeInUp')" href="{{ item.src }}w800"
             data-glightbox="title: {{item.name}}; description: {{ item.description }};">
             {% else %}
-            <div class="group duration-1000 transition-all transform border rounded p-2 relative"
+            <div class="relative group duration-1000 transition-all transform border rounded p-2"
                 x-intersect="$el.classList.add('fadeInUp')">
                 {% endif %}
                 <h5 class="mb-2 text-center group-hover:text-gray-200">{{ item.name }}</h5>
