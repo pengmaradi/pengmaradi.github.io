@@ -6,17 +6,18 @@ description: leidenschaftlicher Künstler
 ---
 <section clsss="duration-1000 transition-all transform" x-intersect="$el.classList.add('fadeInUp')">
     <h1>Willkommen auf meiner Webseite!</h1>
-    <p>
-        Ich bin Xiaoling Peng, Webentwickler sowie leidenschaftlicher Künstler im Bereich der Skulpturengestaltung. In
-        meiner
-        Freizeit erschaffe ich Figuren aus Pappmaché und Ton, die Fantasie und Emotionen zum Leben erwecken. Jede
-        Skulptur, die
-        ich anfertige, ist ein Unikat, mit viel Liebe zum Detail und Hingabe gestaltet. Meine Inspiration schöpfe ich
-        aus der
-        Natur, der Kunstgeschichte und den kleinen Wundern des Alltags. Es freut mich, diese Eindrücke in meinen Werken
-        mit
-        Ihnen zu teilen.
-    </p>
+    <div x-data="leading_relaxed" 
+        x-init="animate = 'animate-ping'"
+        class="flex flex-wrap gap-1"
+        data-text="Ich bin Xiaoling Peng, Webentwickler sowie leidenschaftlicher Künstler im Bereich der Skulpturengestaltung. In
+        meiner Freizeit erschaffe ich Figuren aus Pappmaché und Ton, die Fantasie und Emotionen zum Leben erwecken. Jede
+        Skulptur, die ich anfertige, ist ein Unikat, mit viel Liebe zum Detail und Hingabe gestaltet. Meine Inspiration schöpfe ich
+        aus der Natur, der Kunstgeschichte und den kleinen Wundern des Alltags. Es freut mich, diese Eindrücke in meinen Werken
+        mit Ihnen zu teilen.">
+        <template x-for="text in texts">
+            <span class="animate" x-text="text"></span>
+        </template>
+    </div>
 </section>
 
 

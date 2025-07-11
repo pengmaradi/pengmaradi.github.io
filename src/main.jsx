@@ -6,6 +6,7 @@ import './js/dark'
 import './js/Glightbox'
 import './js/videoModal'
 import './js/todolist'
+import Relaxed from './js/relaxed'
 
 
 import { StrictMode } from 'react'
@@ -15,7 +16,8 @@ import GetFilm from './js/GetFilm'
 document.addEventListener("DOMContentLoaded", () => {
     window.Alpine = Alpine;
     Alpine.plugin(intersect)
-    Alpine.start();
+    Relaxed()
+    Alpine.start()
 })
 
 const film = document.getElementById('film')
@@ -27,5 +29,5 @@ if(film) {
       </StrictMode>,
     )
 } else {
-    console.log('no film element')
+    //console.log('no film element')
 }
