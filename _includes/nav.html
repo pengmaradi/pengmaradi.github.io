@@ -55,8 +55,8 @@
         </div>
     </div>
 
-    <div class="sm:hidden" id="mobile-menu" x-show="showMenu">
-        <div class="space-y-1 px-2 pb-3 pt-2">
+    <div class="sm:hidden bg-gray-500 dark:bg-gray-800" id="mobile-menu" x-show="showMenu">
+        <div class="space-y-1 px-2 pb-3 pt-2 flex flex-col items-center justify-center">
             {% for item in site.data.navigation %}
             <a href="{{ item.link }}" {% if page.url==item.link
                 %}class="active block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" {% else
@@ -70,7 +70,7 @@
                         d="M28 4.7998H3.99998C2.29998 4.7998 0.849976 6.1998 0.849976 7.9498V24.1498C0.849976 25.8498 2.24998 27.2998 3.99998 27.2998H28C29.7 27.2998 31.15 25.8998 31.15 24.1498V7.8998C31.15 6.1998 29.7 4.7998 28 4.7998ZM28 7.0498C28.05 7.0498 28.1 7.0498 28.15 7.0498L16 14.8498L3.84998 7.0498C3.89998 7.0498 3.94998 7.0498 3.99998 7.0498H28ZM28 24.9498H3.99998C3.49998 24.9498 3.09998 24.5498 3.09998 24.0498V9.2498L14.8 16.7498C15.15 16.9998 15.55 17.0998 15.95 17.0998C16.35 17.0998 16.75 16.9998 17.1 16.7498L28.8 9.2498V24.0998C28.9 24.5998 28.5 24.9498 28 24.9498Z" />
                 </svg>
             </button>
-            <a class="block px-3 py-2" href="tel:+41763363847" title="Call me :)">
+            <a class="block px-3 py-2 " href="tel:+41763363847" title="Call me :)">
                 <svg class="h-8 w-8 phone" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_941_17577)">
                         <path
