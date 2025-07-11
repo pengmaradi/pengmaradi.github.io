@@ -64,7 +64,7 @@
         </h5>
         {% for item in site.data.metanav %}
         <a href="{{ item.link }}" {% if page.url==item.link
-            %}class="active block bg-gray-900/50 py-2 text-base font-medium text-white pl-4" {% else
+            %}class="active block bg-gray-800/10 dark:bg-gray-500/10 py-2 text-base font-medium text-white pl-4" {% else
             %}class="animate duration-1000! block py-2 text-base font-medium text-white hover:pl-4 " {%
             endif %}>
             {{ item.name }}
