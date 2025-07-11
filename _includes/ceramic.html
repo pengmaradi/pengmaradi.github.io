@@ -1,20 +1,20 @@
-<section clsss="duration-1000 transition-all transform" x-intersect="$el.classList.add('fadeInUp')">
+<section clsss="animate duration-1000!" x-intersect="$el.classList.add('fadeInUp')">
     <div class="mb-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
         x-data="gLightbox">
         {% for item in site.data.ceramic %}
         {% if item.lightbox %}
-        <a class="relative glightbox cursor-zoom-in group duration-1000 transition-all transform border rounded p-2"
+        <a class="relative glightbox cursor-zoom-in group animate duration-1000! border border-gray-500/30 dark:border-gray-500/50 rounded p-2"
             x-intersect="$el.classList.add('fadeInUp')" href="{{ item.src }}w800"
             data-glightbox="title: {{item.name}}; description: {{ item.description }};">
             {% else %}
-            <div class="relative group duration-1000 transition-all transform border rounded p-2"
+            <div class="relative group animate duration-1000! border border-gray-500/30 dark:border-gray-500/50 rounded p-2"
                 x-intersect="$el.classList.add('fadeInUp')">
                 {% endif %}
                 <h5 class="mb-2 text-center group-hover:text-gray-200">{{ item.name }}</h5>
                 <div class="relative h-52 w-full overflow-hidden">
                     <img src="{{ item.src }}w500" class="hidden h-auto w-full group-hover:sepia rounded" width="400"
                         height="500" alt="{{ item.name }}" title="{{ item.description }}" />
-                    <div class="absolute inset-0 w-full h-full transition duration-500 hover:scale-125"
+                    <div class="absolute inset-0 w-full h-full animate duration-1000! hover:scale-115 hover:rotate-5"
                         style="background: url({{ item.src }}w500);background-size: cover; background-position: center;">
                     </div>
                 </div>

@@ -28,6 +28,10 @@
   }
 }
 
+.animate {
+  @apply duration-300 transition-all ease-in-out;
+}
+
 .scale {
   animation: scale 1s;
 }
@@ -38,14 +42,14 @@ body {
   font-weight: 200;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  @apply text-gray-800 dark:text-gray-200 dark:text-white dark:bg-black;
+  @apply text-gray-900 dark:text-gray-200 dark:text-white dark:bg-black;
 
   h1,
   h2,
   h3,
   h4,
   h5 {
-    @apply font-bold text-gray-600 dark:text-gray-300;
+    @apply font-bold text-gray-500 dark:text-gray-300;
   }
 
   h1 {
@@ -60,7 +64,11 @@ body {
   }
 
   h3 {
-    @apply text-xl;
+    @apply text-xl ;
+  }
+
+  h5 {
+    @apply text-gray-300 dark:text-gray-300 uppercase tracking-wider font-semibold;
   }
 
   p {
@@ -94,28 +102,28 @@ body {
 }
 
 .panel-green {
-  @apply border rounded border-green-900 p-2;
+  @apply border rounded border-green-900/50 p-2;
   border-color: rgb(20, 83, 45);
   .panel-heading {
-    @apply bg-green-900 -mx-2 -mt-2 p-2 text-center text-white;
+    @apply bg-green-900/50 -mx-2 -mt-2 p-2 text-center text-white;
     background-color: rgb(20, 83, 45);
   }
 }
 
 .panel-red {
-  @apply border rounded border-red-900 p-2;
+  @apply border rounded border-red-900/50 p-2;
   border-color: rgb(127, 29, 29);
   .panel-heading {
-    @apply bg-red-900 -mx-2 -mt-2 p-2 text-center text-white;
+    @apply bg-red-900/50 -mx-2 -mt-2 p-2 text-center text-white;
     background: rgb(127, 29, 29);
   }
 }
 
 .panel-info {
-  @apply border rounded border-blue-900 p-2;
+  @apply border rounded border-blue-900/50 p-2;
   border-color: rgb(30, 58, 138);
   .panel-heading {
-    @apply bg-blue-900 -mx-2 -mt-2 p-2 text-center text-white;
+    @apply bg-blue-900/50 -mx-2 -mt-2 p-2 text-center text-white;
     background: rgb(30, 58, 138);
   }
 }

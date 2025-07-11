@@ -6,7 +6,7 @@
         <a href="/impressum.html">Impressum</a>
     </div>
     <div class="w-full lg:w-2/6 lg:mx-4 lg:pr-8">
-        <h5 class="uppercase mb-5 tracking-wider font-semibold">
+        <h5 class="mb-5">
             Kontakt
         </h5>
         <ul class="flex flex-row space-x-4">
@@ -59,13 +59,13 @@
         </ul>
     </div>
     <div class="w-full lg:w-2/6 mt-8 lg:mt-0 lg:mx-4 lg:pr-8">
-        <h5 class="uppercase mb-5 tracking-wider font-semibold">
+        <h5 class="mb-5">
             test links
         </h5>
         {% for item in site.data.metanav %}
         <a href="{{ item.link }}" {% if page.url==item.link
-            %}class="active block bg-gray-900 py-2 text-base font-medium text-white pl-4" {% else
-            %}class="duration-1000 transition-all transform block py-2 text-base font-medium text-white hover:pl-4 " {%
+            %}class="active block bg-gray-900/50 py-2 text-base font-medium text-white pl-4" {% else
+            %}class="animate duration-1000! block py-2 text-base font-medium text-white hover:pl-4 " {%
             endif %}>
             {{ item.name }}
         </a>
