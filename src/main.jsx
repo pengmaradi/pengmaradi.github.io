@@ -6,7 +6,7 @@ import './js/dark'
 import './js/Glightbox'
 import './js/videoModal'
 import './js/todolist'
-import Relaxed from './js/relaxed'
+
 
 
 import { StrictMode } from 'react'
@@ -16,7 +16,6 @@ import GetFilm from './js/GetFilm'
 document.addEventListener("DOMContentLoaded", () => {
     window.Alpine = Alpine;
     Alpine.plugin(intersect)
-    Relaxed()
     Alpine.start()
 })
 
