@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
+@import "./styles/config.pcss";
+
+@import "./styles/menu.pcss";
+@import "./styles/post.pcss";
 
 @keyframes fadeInUp {
   0% {
@@ -56,15 +59,15 @@ body {
     font-family: "Anton", sans-serif;
     font-weight: 100;
     font-style: normal;
-    @apply text-3xl my-4;
+    @apply text-2xl lg:text-3xl my-4;
   }
 
   h2 {
-    @apply text-2xl;
+    @apply text-xl lg:text-2xl;
   }
 
   h3 {
-    @apply text-xl ;
+    @apply text-sm lg:text-xl;
   }
 
   footer {
@@ -104,37 +107,6 @@ body {
   @apply p-2 my-4 border rounded-lg text-gray-400 bg-gray-800 hover:bg-gray-700 hover:text-green-500;
 }
 
-.panel-green {
-  @apply border rounded border-green-900/50 p-2;
-  border-color: rgb(20, 83, 45);
-  .panel-heading {
-    @apply bg-green-900/50 -mx-2 -mt-2 p-2 text-center text-white;
-    background-color: rgb(20, 83, 45);
-  }
-}
-
-.panel-red {
-  @apply border rounded border-red-900/50 p-2;
-  border-color: rgb(127, 29, 29);
-  .panel-heading {
-    @apply bg-red-900/50 -mx-2 -mt-2 p-2 text-center text-white;
-    background: rgb(127, 29, 29);
-  }
-}
-
-.panel-info {
-  @apply border rounded border-blue-900/50 p-2;
-  border-color: rgb(30, 58, 138);
-  .panel-heading {
-    @apply bg-blue-900/50 -mx-2 -mt-2 p-2 text-center text-white;
-    background: rgb(30, 58, 138);
-  }
-}
-
-.panel-footer {
-  font-family: "Anton", sans-serif;
-  @apply mt-4;
-}
 
 .gslide-desc {
     @apply dark:text-black;
@@ -167,45 +139,3 @@ svg {
   @apply relative;
 }
 
-/* fix old iPhone 7 */
-.bg-gray-300 {
-  background: rgb(209, 213, 219);
-}
-.bg-gray-600 {
-  background: rgb(75, 85, 99);
-}
-.bg-gray-800 {
-  background: rgb(31, 41, 55);
-}
-.bg-gray-900 {
-  background: rgb(17, 24, 39);
-}
-
-/* main nav */
-.nav {
-    @apply fixed top-0 left-0 w-full h-full bg-gray-900/90 z-1 hidden;
-
-    &.active {
-        @apply flex justify-center items-center;
-    }
-
-    .navigation {
-        @apply flex flex-col items-center gap-6 text-3xl text-white;
-
-        li {
-            @apply transition duration-300 ease-in-out;
-
-            &:hover {
-                @apply text-sky-500;
-            }
-
-            a {
-                @apply no-underline opacity-30;
-            }
-        }
-    }
-
-    .deco {
-        @apply absolute -z-1 inset-0 w-full h-full bg-gradient-to-r from-sky-500 to-indigo-500 opacity-0;
-    }
-}
