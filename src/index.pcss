@@ -42,7 +42,7 @@ body {
   font-weight: 200;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  @apply text-gray-900 dark:text-gray-200 dark:text-white dark:bg-black;
+  @apply bg-gray-300/40 text-black dark:text-gray-200 dark:text-white dark:bg-black;
 
   h1,
   h2,
@@ -181,3 +181,31 @@ svg {
   background: rgb(17, 24, 39);
 }
 
+/* main nav */
+.nav {
+    @apply fixed top-0 left-0 w-full h-full bg-gray-900/90 z-1 hidden;
+
+    &.active {
+        @apply flex justify-center items-center;
+    }
+
+    .navigation {
+        @apply flex flex-col items-center gap-6 text-3xl text-white;
+
+        li {
+            @apply transition duration-300 ease-in-out;
+
+            &:hover {
+                @apply text-sky-500;
+            }
+
+            a {
+                @apply no-underline opacity-30;
+            }
+        }
+    }
+
+    .deco {
+        @apply absolute -z-1 inset-0 w-full h-full bg-gradient-to-r from-sky-500 to-indigo-500 opacity-0;
+    }
+}

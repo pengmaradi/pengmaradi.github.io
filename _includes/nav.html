@@ -1,10 +1,10 @@
-<nav class="bg-gray-500 dark:bg-gray-800 fixed sm:relative top-0 z-40 w-full">
+<nav class="bg-gray-500 dark:bg-gray-800 fixed sm:relative top-0 z-40 w-full" x-data="mainMenu">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
-            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <!-- Mobile menu button-->
-                <button type="button" @click="showMenu = !showMenu;"
-                    class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-1 focus:ring-inset focus:ring-white"
+            <!-- Mobile menu button-->
+            <div class="absolute z-2 inset-y-0 left-0 flex items-center sm:hidden">
+                <button type="button"
+                    class="bars relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-1 focus:ring-inset focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="absolute -inset-0.5"></span>
                     <span class="sr-only">Open main menu</span>
@@ -23,7 +23,7 @@
             </div>
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex flex-shrink-0 items-center">
-                    <a href="/">
+                    <a href="/" class="sr-only">
                         <img class="h-8 w-auto" src="logo.png" alt="pengmaradi art" />
                     </a>
                 </div>
@@ -55,11 +55,12 @@
         </div>
     </div>
 
-    <div class="sm:hidden h-screen" id="mobile-menu" x-show="showMenu">
-        <div class="space-y-1 px-2 pb-3 pt-2 flex flex-col items-center justify-center bg-gray-500 dark:bg-gray-800">
+    <div class="nav sm:hidden h-screen" id="mobile-menu" :class="showMenu && 'active'">
+        <div class="deco"></div>
+        <div class="navigation">
             {% for item in site.data.navigation %}
             <a href="{{ item.link }}" {% if page.url==item.link
-                %}class="active block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" {% else
+                %}class="active block rounded-md px-3 py-2 text-base font-medium text-sky-500" {% else
                 %}class="block rounded-md px-3 py-2 text-base font-medium text-white" {% endif %}>{{ item.name }}</a>
             {% endfor %}
 
@@ -90,3 +91,22 @@
         </div>
     </div>
 </nav>
+
+<div class="fixed sm:absolute z-100 top-0 left-1/2 -translate-x-1/2">
+    <div class="shadow-2xl shadow-sky-500/20 h-15 w-15 bg-transparent rounded-full">
+        <a title="pengmaradi home" href="/">
+            <svg class="shadow-2xl shadow-sky-500/50 h-15 w-15 bg-transparent rounded-full" viewbox="0 0 400 400" x-data="arrowMaskTry">
+                <mask id="xpLogo" maskContentUnits="userSpaceOnUse">
+                    <path
+                        style="fill:none;stroke:#ffffff;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none"
+                        d="M 150,3.6021735 296.45312,150 150,296.46799 3.555108,150 Z" id="maskFill" />
+                </mask>
+                <image mask="url(#xpLogo)" href="https://pengmaradi.github.io/logo.png" x="0" y="0" width="320" />
+            
+                <g id="main">
+                    <image href="https://pengmaradi.github.io/logo.png" x="50" y="100" width="100" height="100"></image>
+                </g>
+            </svg>
+        </a>
+    </div>
+</div>

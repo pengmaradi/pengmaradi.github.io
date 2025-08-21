@@ -6,27 +6,17 @@ import './js/dark'
 import './js/Glightbox'
 import './js/videoModal'
 import './js/todolist'
+import ArrowMask from './js/ArrowMask'
+import HeadingAnimate from './js/HeadingAnimate'
+import MainMenu from './js/MainMenu'
 
-
-
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import GetFilm from './js/GetFilm'
 
 document.addEventListener("DOMContentLoaded", () => {
     window.Alpine = Alpine;
     Alpine.plugin(intersect)
+    MainMenu()
+    ArrowMask()
+    HeadingAnimate()
     Alpine.start()
 })
 
-const film = document.getElementById('film')
-
-if(film) {
-    createRoot(film).render(
-      <StrictMode>
-        <GetFilm />
-      </StrictMode>,
-    )
-} else {
-    //console.log('no film element')
-}
