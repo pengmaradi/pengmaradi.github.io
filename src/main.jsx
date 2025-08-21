@@ -9,6 +9,7 @@ import './js/todolist'
 import ArrowMask from './js/ArrowMask'
 import HeadingAnimate from './js/HeadingAnimate'
 import MainMenu from './js/MainMenu'
+import PostPage from './js/PostPage'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     MainMenu()
     ArrowMask()
     HeadingAnimate()
+    PostPage()
     Alpine.start()
 })
 

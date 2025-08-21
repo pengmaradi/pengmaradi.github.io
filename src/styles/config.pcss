@@ -1,0 +1,30 @@
+@variant dark (&:where(.dark, .dark *));
+
+@utility animate {
+  @apply transition duration-500 ease-in-out;
+}
+
+@theme {
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-10px) scale(1.05);
+      }
+    }
+
+    --animate-shine: shine 6s ease-in-out infinite;
+
+    @keyframes shine {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}

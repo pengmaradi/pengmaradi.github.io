@@ -1,0 +1,75 @@
+
+
+.post-page {
+    @apply relative p-11 border-6 border-white rounded-2xl rotate-1 mb-20 lg:mb-35;
+    background-image: linear-gradient(90deg, #f8f9fa 79px, #e9ecef 80px, #e9ecef 81px, #f8f9fa 82px);
+    background-size: 100% 30px;
+
+    .post-content {
+        .post-title {
+            @apply bg-linear-45 font-bold text-gray-800 h-40 lg:h-60 flex items-center justify-center p-10 bg-gray-100 border-6 border-white rounded-2xl shadow-lg rotate-3 overflow-hidden animate-float;
+
+            &:before {
+                @apply absolute z-1 inset-0 content-[''] animate-shine;
+                background: linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.1) 49%, rgba(255, 255, 255, 0.1) 51%, transparent 52%);
+            }
+
+            &.panel-green {
+                @apply from-green-100 to-green-500/80 text-green-800;
+            }
+
+            &.panel-blue {
+                @apply from-blue-100 to-blue-500/80 text-blue-800;
+            }
+
+            &.panel-red {
+                @apply from-red-100 to-red-500/80 text-red-800;
+            }
+
+            &.panel-yellow {
+                @apply from-yellow-100 to-yellow-500/80 text-yellow-800;
+            }
+
+            &.panel-purple {
+                @apply from-purple-100 to-purple-500/80 text-purple-800;
+            }
+
+            &.panel-pink {
+                @apply from-pink-100 to-pink-500/80 text-pink-800;
+            }
+
+            &.panel-gray {
+                @apply from-gray-100 to-gray-500/80 text-gray-800;
+            }
+
+            &.panel-orange {
+                @apply from-orange-100 to-orange-500/80 text-orange-800;
+            }
+
+            &.panel-teal {
+                @apply from-teal-100 to-teal-500/80 text-teal-800;
+            }
+        }
+
+        .post-data {
+            @apply bg-gray-300 p-5 text-sky-500 border border-dashed border-5 rounded-2xl inline-block relative rotate-5 shadow-xl shadow-sky-500/30 animate-float;
+        }
+
+        .post-description {
+            @apply mt-20 pb-20 text-gray-900 text-lg leading-relaxed;
+        }
+
+        .post-footer {
+            @apply absolute -top-5 -left-4 bg-gray-400 text-white text-lg inline p-2 rounded-lg -rotate-4 shadow-xl animate-float;
+
+            .ping {
+                @apply absolute top-0 right-0 inline-flex h-2 w-2 animate-ping rounded-full bg-sky-500 shadow-xl;
+            }
+        }
+
+        .post-link {
+            @apply absolute bottom-10 right-10 w-15 w-15 inline-block text-sky-500 hover:text-sky-400 overflow-hidden animate-float drop-shadow-[4px_4px_8px_rgba(0,0,0,0.3)] contrast-120 saturate-130;
+        }
+
+    }
+}
