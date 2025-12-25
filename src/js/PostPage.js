@@ -23,8 +23,8 @@ const PostPage = () => {
                         y: 0,
                         rotation: index % 2 === 0 ? 1 : -2,
                         scale: 1,
-                        duration: 1.5,
-                        ease: 'back.out(1.7)',
+                        duration: 3,
+                        ease: 'back.out(2)',
                         scrollTrigger: {
                             trigger: page,
                             start: 'top 85%',
