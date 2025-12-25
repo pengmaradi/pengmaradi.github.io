@@ -1,28 +1,49 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-    plugins: [react()],
+const PROJECT_ROOT = __dirname;
 
-    base: '/',
-    publicDir: 'src',
+// 多入口
+const ENTRY = {
+    main: resolve(PROJECT_ROOT, 'src/main.jsx'),
+};
 
-    build: {
-        manifest: true,
-        outDir: './assets',
-        assetsDir: './assets',
-        emptyOutDir: true,
-        sourcemap: true,
-        rollupOptions: {
-            input: resolve(__dirname, 'src/main.jsx'),
-            output: {
-                entryFileNames: '[name].js',
-                chunkFileNames: '[name].js',
-                assetFileNames: '[name].css',
-            },
+// 输出目录（你的原配置）
+const OUTPUT = resolve(PROJECT_ROOT, 'assets/');
+
+export default defineConfig(({ mode }) => {
+    return {
+        root: resolve(PROJECT_ROOT, 'src'),
+        server: {
+            host: '0.0.0.0',
+            port: 8989,
         },
-        chunkSizeWarningLimit: 1000,
-    },
+
+        base: '/',
+        publicDir: false,
+
+        build: {
+            manifest: true,
+            outDir: resolve(PROJECT_ROOT, OUTPUT),
+            emptyOutDir: true,
+            copyPublicDir: false,
+
+            rollupOptions: {
+                input: ENTRY,
+                output: {
+                    entryFileNames: '[name].js',
+                    chunkFileNames: '[name].js',
+                    assetFileNames: '[name][extname]',
+                },
+            },
+            chunkSizeWarningLimit: 1000,
+        },
+
+        css: {
+            devSourcemap: true,
+        },
+
+        plugins: [react()],
+    };
 });

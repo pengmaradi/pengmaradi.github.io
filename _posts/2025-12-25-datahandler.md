@@ -2,9 +2,9 @@
 layout: tailwind
 title: "TYPO3 dataHandler import Command"
 date: 2025-12-25 11:06:01 -0100
-categories: typo3-v14
+categories: typo3
 class: panel-green
-description: 
+description: use TYPO3 dafault Datahandler import data with TCA
 ---
 
 ### simulate a backend user
