@@ -9,7 +9,36 @@ description: plugin as CType
 
 ## Custom plugin as CType with flexform
 
-### ext_tables.php
+### in TYPO3 version 14
+
+```ext_localconf.php
+ExtensionUtility::configurePlugin(
+    'SitePackage',
+    'Ai1',
+    [
+        TextGeneratorController::class => 'index',
+    ],
+    [
+        TextGeneratorController::class => 'index',
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+```
+
+```TCA/Overrides/tt_content.php
+$aiGenerator = ExtensionUtility::registerPlugin(
+    'site_package',
+    'Ai1',
+    'Text Generator ai1',
+    'actions-newspaper',
+    'plugins',
+    'AI Text Generator',
+    'FILE:EXT:site_package/Configuration/FlexForms/AiGenerater.xml'
+);
+```
+
+
+### old TYPO3: ext_tables.php
 
 - addStaticFile
 - addPageTSConfig

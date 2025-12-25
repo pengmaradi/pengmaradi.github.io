@@ -1,7 +1,7 @@
 ---
 layout: tailwind
 title: "TYPO3 dataHandler import Command"
-date: 2025-12-25 11:06:01 -0100
+date: 2025-12-25 11:06:01
 categories: typo3
 class: panel-green
 description: use TYPO3 dafault Datahandler import data with TCA
@@ -91,12 +91,8 @@ final class ImportProjectService
             $data[self::TABLE][$newId] = [
                 'pid' => $pid,
                 'sys_language_uid' => 0,
-                'name' => $record['name'],
-                'description' => $record['description'],
-                'color' => $record['color'],
-                'lightbox' => (int)$record['lightbox'],
-                'sold' => (int)$record['sold'],
                 'file' => $newFileReferenceId, // Placeholder, to be processed later.
+                ...$record
             ];
 
             if (!empty($record['file'])) {
