@@ -9,6 +9,21 @@ description: extbase add sys_category
 
 # added sys_category in custom Extbase
 
+### in version 13-14
+
+```TCA/Overrides/tt_content.php
+$myTable = 'tx_sitepackage_domain_model_exhibition';
+$GLOBALS['TCA'][$myTable]['columns']['categories'] = [
+    'config' => [
+        'type' => 'category',
+    ],
+];
+ExtensionManagementUtility::addToAllTCAtypes(
+    $myTable,
+    'categories'
+);
+```
+
 ### 1. add cat field in sql
 
 ```SQL
